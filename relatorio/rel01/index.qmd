@@ -1,0 +1,109 @@
+---
+# Só mude aqui!!!!
+author: "Regina Graziela Cassemiro de Almeida"
+title: "Relatório de Aula Prática 01"
+bibliography: referencias.bib
+# A partir daqui nao faca alteracoes!!!!!
+link-citations: true
+csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
+subtitle: "<a href='https://bendeivide.github.io/courses/epaec/' target='_blank'>Linguagem R na Ciência de Dados </a> </br> <a href='https://bendeivide.github.io' target='_blank'>Prof. Ben Dêivide (DEFIM/CAP/UFSJ)</a>"
+include-before-body: header.html
+date: now
+date-format: "DD/MM/YYYY, HH:mm"
+lang: pt-BR
+format:
+  html:
+    toc: true
+    number-sections: true
+    theme: bootstrap
+    #css: styles.css
+    code-fold: true
+    code-tools: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+
+## 📌 Introdução
+
+A linguagem R é muito utilizada na área de estatística e análise de dados. Atualmente, com o crescimento da Ciência de Dados, aprender R se tornou importante para quem deseja trabalhar com análise e interpretação de informações.
+
+Nesta aula prática, foi feita uma introdução à linguagem R, com o objetivo de conhecer seu funcionamento básico e aprender os primeiros comandos. A atividade ajudou a entender como o R pode ser utilizado no dia a dia acadêmico.
+
+
+## 🎯 Objetivos
+
+### Objetivo geral
+
+Aprender os conceitos básicos da linguagem R.
+
+### Objetivos específicos
+
+- Conhecer o ambiente R e o RStudio
+- Executar comandos simples
+- Criar variáveis
+- Trabalhar com dados básicos  
+
+---
+
+## 📚  Fundamentação Teórica
+O R é uma linguagem de programação voltada para estatística e análise de dados. Ele permite fazer cálculos, organizar dados e gerar gráficos.
+
+Um ponto importante é que no R tudo funciona como objeto, ou seja, os dados são armazenados e podem ser manipulados depois. Além disso, usamos funções para realizar operações.
+
+Alguns conceitos básicos estudados foram:
+
+- Vetores (conjunto de valores)
+- Variáveis
+- Funções
+- Operações matemáticas
+
+A média de um conjunto de dados pode ser calculada por:
+
+$$
+\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
+$$
+
+---
+
+## ⚙️ Metodologia
+
+::: {.callout-note}
+A prática foi realizada no computador utilizando o RStudio.
+
+Durante a aula, foram feitos os seguintes passos:
+
+- Abertura do RStudio
+- Teste de comandos no console
+- Criação de variáveis
+- Realização de operações simples
+- Testes com vetores
+:::
+
+---
+
+## 🔍 Resultados e Discussão
+
+Durante a atividade, foi possível perceber que o R é uma linguagem relativamente simples no início, principalmente para comandos básicos.
+
+Os testes realizados mostraram que é fácil criar variáveis e fazer cálculos. Também foi possível observar como os dados podem ser organizados em vetores.
+
+Apesar de ser simples no começo, dá para ver que a linguagem pode ficar mais complexa dependendo do uso. Mesmo assim, ela é muito útil para análise de dados.
+
+No geral, os resultados foram positivos e ajudaram a entender melhor o funcionamento do R.
+
+
+## 🧠 Considerações finais
+
+A prática foi importante para ter o primeiro contato com a linguagem R.
+
+Foi possível aprender os comandos básicos e entender como o R funciona. Os objetivos foram alcançados, já que conseguimos executar comandos e trabalhar com dados simples.
+
+Como melhoria, seria interessante fazer mais exercícios práticos para fixar melhor o conteúdo.
+
+
+## 📖 Referências
+BÊNDEVIDE, Ben. Curso de R para Ciência de Dados. Disponível em: https://bendeivide.github.io/courses/rcd/
+. Acesso em: 30 mar. 2026.
