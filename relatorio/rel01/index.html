@@ -72,35 +72,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -113,11 +84,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">1</span> 📌 Introdução</a></li>
-  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos"><span class="header-section-number">2</span> 🎯 Objetivos</a>
-  <ul class="collapse">
-  <li><a href="#objetivo-geral" id="toc-objetivo-geral" class="nav-link" data-scroll-target="#objetivo-geral"><span class="header-section-number">2.1</span> Objetivo geral</a></li>
-  <li><a href="#objetivos-específicos" id="toc-objetivos-específicos" class="nav-link" data-scroll-target="#objetivos-específicos"><span class="header-section-number">2.2</span> Objetivos específicos</a></li>
-  </ul></li>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos"><span class="header-section-number">2</span> 🎯 Objetivos</a></li>
   <li><a href="#fundamentação-teórica" id="toc-fundamentação-teórica" class="nav-link" data-scroll-target="#fundamentação-teórica"><span class="header-section-number">3</span> 📚 Fundamentação Teórica</a></li>
   <li><a href="#metodologia" id="toc-metodologia" class="nav-link" data-scroll-target="#metodologia"><span class="header-section-number">4</span> ⚙️ Metodologia</a></li>
   <li><a href="#resultados-e-discussão" id="toc-resultados-e-discussão" class="nav-link" data-scroll-target="#resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</a></li>
@@ -138,7 +105,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Relatório de Aula Prática 01</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Relatório de Aula Prática 01</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar o código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Esconder o código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver o código fonte</a></li></ul></div></div>
 <p class="subtitle lead"><a href="https://bendeivide.github.io/courses/epaec/" target="_blank">Linguagem R na Ciência de Dados </a> <br> <a href="https://bendeivide.github.io" target="_blank">Prof.&nbsp;Ben Dêivide (DEFIM/CAP/UFSJ)</a></p>
 </div>
 
@@ -156,7 +123,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">31/03/2026, 17:22</p>
+      <p class="date">06/04/2026, 22:55</p>
     </div>
   </div>
   
@@ -170,80 +137,81 @@ window.Quarto = {
 
 <section id="introdução" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">1</span> 📌 Introdução</h2>
-<p>A linguagem R é muito utilizada na área de estatística e análise de dados. Atualmente, com o crescimento da Ciência de Dados, aprender R se tornou importante para quem deseja trabalhar com análise e interpretação de informações.</p>
-<p>Nesta aula prática, foi feita uma introdução à linguagem R, com o objetivo de conhecer seu funcionamento básico e aprender os primeiros comandos. A atividade ajudou a entender como o R pode ser utilizado no dia a dia acadêmico.</p>
+<p>A linguagem R é muito utilizada na área de estatística e análise de dados, sendo bastante importante dentro da Ciência de Dados. Com o aumento do uso de dados em diversas áreas, aprender R se tornou essencial para estudantes e profissionais que precisam analisar e interpretar informações.</p>
+<p>Nesta aula prática, foi realizada uma introdução à linguagem R com base no curso R Básico 2024. Ao longo das aulas, foi possível conhecer desde os conceitos mais simples, como execução de comandos e criação de variáveis, até noções mais organizadas de estruturas de dados e uso de funções.</p>
+<p>O curso apresenta o conteúdo de forma progressiva, começando pelo ambiente de trabalho, passando pela manipulação de dados e chegando até conceitos como funções, estruturas de controle e uso de pacotes. Isso facilita bastante o aprendizado, principalmente para quem está tendo o primeiro contato com programação.</p>
+<p>A atividade permitiu entender melhor como o R funciona na prática e como ele pode ser utilizado no ambiente acadêmico para facilitar cálculos, organização de dados e análises.</p>
 </section>
 <section id="objetivos" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="objetivos"><span class="header-section-number">2</span> 🎯 Objetivos</h2>
-<section id="objetivo-geral" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="objetivo-geral"><span class="header-section-number">2.1</span> Objetivo geral</h3>
-<p>Aprender os conceitos básicos da linguagem R.</p>
-</section>
-<section id="objetivos-específicos" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="objetivos-específicos"><span class="header-section-number">2.2</span> Objetivos específicos</h3>
+<p>Aprender os conceitos básicos da linguagem R a partir das aulas do curso R Básico.</p>
 <ul>
+<li>Objetivos específicos</li>
 <li>Conhecer o ambiente R e o RStudio</li>
 <li>Executar comandos simples</li>
-<li>Criar variáveis</li>
-<li>Trabalhar com dados básicos</li>
+<li>Criar e manipular variáveis</li>
+<li>Trabalhar com estruturas de dados básicas</li>
+<li>Entender o uso de funções</li>
+<li>Compreender a organização de códigos e scripts</li>
 </ul>
-<hr>
-</section>
 </section>
 <section id="fundamentação-teórica" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="fundamentação-teórica"><span class="header-section-number">3</span> 📚 Fundamentação Teórica</h2>
-<p>O R é uma linguagem de programação voltada para estatística e análise de dados. Ele permite fazer cálculos, organizar dados e gerar gráficos.</p>
-<p>Um ponto importante é que no R tudo funciona como objeto, ou seja, os dados são armazenados e podem ser manipulados depois. Além disso, usamos funções para realizar operações.</p>
-<p>Alguns conceitos básicos estudados foram:</p>
-<ul>
-<li>Vetores (conjunto de valores)</li>
-<li>Variáveis</li>
-<li>Funções</li>
-<li>Operações matemáticas</li>
-</ul>
-<p>A média de um conjunto de dados pode ser calculada por:</p>
-<p><span class="math display">\[
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-\]</span></p>
-<hr>
+<p>O R é uma linguagem de programação voltada para análise estatística e manipulação de dados. Durante o curso, foi possível observar que o R funciona de forma baseada em objetos, ou seja, tudo que é criado pode ser armazenado e reutilizado posteriormente.</p>
+<p>Inicialmente, são apresentados conceitos básicos, como a utilização do console e a execução de comandos simples. Em seguida, o curso aborda a criação de variáveis, operações matemáticas e organização de arquivos.</p>
+<p>Outro ponto importante é o estudo das estruturas de dados, como vetores, matrizes, listas e data frames, que são fundamentais para organizar e analisar informações. Também são utilizadas funções, que permitem automatizar cálculos e facilitar o desenvolvimento dos códigos.</p>
+<p>Além disso, são apresentadas estruturas de controle, como condições e repetições, que ajudam na tomada de decisões dentro do programa. O curso também destaca a importância da organização do código, incentivando o uso de boas práticas.</p>
+<p>Por fim, é introduzido o uso de pacotes, que ampliam as funcionalidades do R, permitindo realizar análises mais completas. Dessa forma, o conteúdo estudado fornece uma base sólida para o aprendizado da linguagem.</p>
 </section>
 <section id="metodologia" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="metodologia"><span class="header-section-number">4</span> ⚙️ Metodologia</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <p>A prática foi realizada no computador utilizando o RStudio.</p>
-<p>Durante a aula, foram feitos os seguintes passos:</p>
+<p>Realizados os seguintes procedimentos:</p>
 <ul>
 <li>Abertura do RStudio</li>
-<li>Teste de comandos no console</li>
+<li>Execução de comandos no console</li>
 <li>Criação de variáveis</li>
-<li>Realização de operações simples</li>
-<li>Testes com vetores</li>
+<li>Realização de operações matemáticas</li>
+<li>Manipulação de vetores e dados simples</li>
+<li>Utilização de funções básicas</li>
+<li>Observação dos resultados gerados</li>
 </ul>
-</div>
-</div>
-<hr>
 </section>
 <section id="resultados-e-discussão" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</h2>
-<p>Durante a atividade, foi possível perceber que o R é uma linguagem relativamente simples no início, principalmente para comandos básicos.</p>
-<p>Os testes realizados mostraram que é fácil criar variáveis e fazer cálculos. Também foi possível observar como os dados podem ser organizados em vetores.</p>
-<p>Apesar de ser simples no começo, dá para ver que a linguagem pode ficar mais complexa dependendo do uso. Mesmo assim, ela é muito útil para análise de dados.</p>
-<p>No geral, os resultados foram positivos e ajudaram a entender melhor o funcionamento do R.</p>
+<p>Com base nas aulas do curso, percebe-se que o R vai se tornando mais completo conforme o conteúdo avança, principalmente com o uso de estruturas mais organizadas, funções e pacotes.</p>
+<p>Mesmo podendo se tornar mais complexo com o tempo, o R se mostra uma ferramenta muito útil e eficiente para análise de dados. No geral, os resultados foram positivos e contribuíram para um bom entendimento inicial da linguagem.</p>
 </section>
 <section id="considerações-finais" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações finais</h2>
-<p>A prática foi importante para ter o primeiro contato com a linguagem R.</p>
-<p>Foi possível aprender os comandos básicos e entender como o R funciona. Os objetivos foram alcançados, já que conseguimos executar comandos e trabalhar com dados simples.</p>
-<p>Como melhoria, seria interessante fazer mais exercícios práticos para fixar melhor o conteúdo.</p>
+<p>O estudo da linguagem R, com base nas 26 aulas do curso R Básico 2024, permitiu compreender seus conceitos fundamentais e suas aplicações na análise de dados.</p>
+<p>Ao longo da prática, foi possível observar que o R é uma ferramenta eficiente para realizar cálculos, organizar dados e aplicar conceitos estatísticos de forma simples. Os exemplos trabalhados ajudaram a entender melhor o funcionamento da linguagem na prática.</p>
+<p>Como exemplo, foi possível utilizar comandos básicos para criação de variáveis e cálculos:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 15</code></pre>
+</div>
+</div>
+<p>Também foi possível trabalhar com vetores e aplicar funções estatísticas:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>valores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(valores)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+<p>Esses exemplos mostram como o R facilita a análise de dados mesmo em situações simples.</p>
+<p>Os objetivos propostos foram alcançados, pois foi possível compreender o funcionamento básico da linguagem e aplicar comandos na prática.</p>
+<p>Como continuidade, é importante realizar mais exercícios e aprofundar o uso de funções e estruturas mais avançadas, para desenvolver maior domínio da linguagem.</p>
 </section>
 <section id="referências" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="referências"><span class="header-section-number">7</span> 📖 Referências</h2>
@@ -705,115 +673,122 @@ Nota
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Código fonte</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Regina Graziela Cassemiro de Almeida"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório de Aula Prática 01"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> true</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> associacao-brasileira-de-normas-tecnicas-ipea.csl</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "&lt;a href='https://bendeivide.github.io/courses/epaec/' target='_blank'&gt;Linguagem R na Ciência de Dados &lt;/a&gt; &lt;/br&gt; &lt;a href='https://bendeivide.github.io' target='_blank'&gt;Prof. Ben Dêivide (DEFIM/CAP/UFSJ)&lt;/a&gt;"</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="an">include-before-body:</span><span class="co"> header.html</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> now</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="an">date-format:</span><span class="co"> "DD/MM/YYYY, HH:mm"</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> pt-BR</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: bootstrap</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">    #css: styles.css</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>A linguagem R é muito utilizada na área de estatística e análise de dados. Atualmente, com o crescimento da Ciência de Dados, aprender R se tornou importante para quem deseja trabalhar com análise e interpretação de informações.</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>Nesta aula prática, foi feita uma introdução à linguagem R, com o objetivo de conhecer seu funcionamento básico e aprender os primeiros comandos. A atividade ajudou a entender como o R pode ser utilizado no dia a dia acadêmico.</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>Aprender os conceitos básicos da linguagem R.</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Conhecer o ambiente R e o RStudio</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Executar comandos simples</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Criar variáveis</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Trabalhar com dados básicos  </span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚  Fundamentação Teórica</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>O R é uma linguagem de programação voltada para estatística e análise de dados. Ele permite fazer cálculos, organizar dados e gerar gráficos.</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>Um ponto importante é que no R tudo funciona como objeto, ou seja, os dados são armazenados e podem ser manipulados depois. Além disso, usamos funções para realizar operações.</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>Alguns conceitos básicos estudados foram:</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Vetores (conjunto de valores)</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Variáveis</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Funções</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Operações matemáticas</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>A média de um conjunto de dados pode ser calculada por:</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>A prática foi realizada no computador utilizando o RStudio.</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>Durante a aula, foram feitos os seguintes passos:</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Abertura do RStudio</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Teste de comandos no console</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Criação de variáveis</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Realização de operações simples</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Testes com vetores</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>Durante a atividade, foi possível perceber que o R é uma linguagem relativamente simples no início, principalmente para comandos básicos.</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>Os testes realizados mostraram que é fácil criar variáveis e fazer cálculos. Também foi possível observar como os dados podem ser organizados em vetores.</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>Apesar de ser simples no começo, dá para ver que a linguagem pode ficar mais complexa dependendo do uso. Mesmo assim, ela é muito útil para análise de dados.</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>No geral, os resultados foram positivos e ajudaram a entender melhor o funcionamento do R.</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>A prática foi importante para ter o primeiro contato com a linguagem R.</span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>Foi possível aprender os comandos básicos e entender como o R funciona. Os objetivos foram alcançados, já que conseguimos executar comandos e trabalhar com dados simples.</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>Como melhoria, seria interessante fazer mais exercícios práticos para fixar melhor o conteúdo.</span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>BÊNDEVIDE, Ben. Curso de R para Ciência de Dados. Disponível em: https://bendeivide.github.io/courses/rcd/</span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>. Acesso em: 30 mar. 2026.</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Regina Graziela Cassemiro de Almeida"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório de Aula Prática 01"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> true</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> associacao-brasileira-de-normas-tecnicas-ipea.csl</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "&lt;a href='https://bendeivide.github.io/courses/epaec/' target='_blank'&gt;Linguagem R na Ciência de Dados &lt;/a&gt; &lt;/br&gt; &lt;a href='https://bendeivide.github.io' target='_blank'&gt;Prof. Ben Dêivide (DEFIM/CAP/UFSJ)&lt;/a&gt;"</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="an">include-before-body:</span><span class="co"> header.html</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> now</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="an">date-format:</span><span class="co"> "DD/MM/YYYY, HH:mm"</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> pt-BR</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: bootstrap</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">    #css: styles.css</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>A linguagem R é muito utilizada na área de estatística e análise de dados, sendo bastante importante dentro da Ciência de Dados. Com o aumento do uso de dados em diversas áreas, aprender R se tornou essencial para estudantes e profissionais que precisam analisar e interpretar informações.</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>Nesta aula prática, foi realizada uma introdução à linguagem R com base no curso R Básico 2024. Ao longo das aulas, foi possível conhecer desde os conceitos mais simples, como execução de comandos e criação de variáveis, até noções mais organizadas de estruturas de dados e uso de funções.</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>O curso apresenta o conteúdo de forma progressiva, começando pelo ambiente de trabalho, passando pela manipulação de dados e chegando até conceitos como funções, estruturas de controle e uso de pacotes. Isso facilita bastante o aprendizado, principalmente para quem está tendo o primeiro contato com programação.</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>A atividade permitiu entender melhor como o R funciona na prática e como ele pode ser utilizado no ambiente acadêmico para facilitar cálculos, organização de dados e análises.</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>Aprender os conceitos básicos da linguagem R a partir das aulas do curso R Básico. </span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Objetivos específicos</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Conhecer o ambiente R e o RStudio</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Executar comandos simples</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Criar e manipular variáveis</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Trabalhar com estruturas de dados básicas</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Entender o uso de funções</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Compreender a organização de códigos e scripts</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚  Fundamentação Teórica</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>O R é uma linguagem de programação voltada para análise estatística e manipulação de dados. Durante o curso, foi possível observar que o R funciona de forma baseada em objetos, ou seja, tudo que é criado pode ser armazenado e reutilizado posteriormente.</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>Inicialmente, são apresentados conceitos básicos, como a utilização do console e a execução de comandos simples. Em seguida, o curso aborda a criação de variáveis, operações matemáticas e organização de arquivos.</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>Outro ponto importante é o estudo das estruturas de dados, como vetores, matrizes, listas e data frames, que são fundamentais para organizar e analisar informações. Também são utilizadas funções, que permitem automatizar cálculos e facilitar o desenvolvimento dos códigos.</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>Além disso, são apresentadas estruturas de controle, como condições e repetições, que ajudam na tomada de decisões dentro do programa. O curso também destaca a importância da organização do código, incentivando o uso de boas práticas.</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>Por fim, é introduzido o uso de pacotes, que ampliam as funcionalidades do R, permitindo realizar análises mais completas. Dessa forma, o conteúdo estudado fornece uma base sólida para o aprendizado da linguagem.</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>A prática foi realizada no computador utilizando o RStudio.</span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>Realizados os seguintes procedimentos:</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Abertura do RStudio</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Execução de comandos no console</span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Criação de variáveis</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Realização de operações matemáticas</span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Manipulação de vetores e dados simples</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Utilização de funções básicas</span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Observação dos resultados gerados</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>Com base nas aulas do curso, percebe-se que o R vai se tornando mais completo conforme o conteúdo avança, principalmente com o uso de estruturas mais organizadas, funções e pacotes.</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>Mesmo podendo se tornar mais complexo com o tempo, o R se mostra uma ferramenta muito útil e eficiente para análise de dados. No geral, os resultados foram positivos e contribuíram para um bom entendimento inicial da linguagem.</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>O estudo da linguagem R, com base nas 26 aulas do curso R Básico 2024, permitiu compreender seus conceitos fundamentais e suas aplicações na análise de dados.</span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>Ao longo da prática, foi possível observar que o R é uma ferramenta eficiente para realizar cálculos, organizar dados e aplicar conceitos estatísticos de forma simples. Os exemplos trabalhados ajudaram a entender melhor o funcionamento da linguagem na prática.</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>Como exemplo, foi possível utilizar comandos básicos para criação de variáveis e cálculos:</span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>Também foi possível trabalhar com vetores e aplicar funções estatísticas:</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>valores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>)</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(valores)</span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>Esses exemplos mostram como o R facilita a análise de dados mesmo em situações simples.</span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>Os objetivos propostos foram alcançados, pois foi possível compreender o funcionamento básico da linguagem e aplicar comandos na prática.</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>Como continuidade, é importante realizar mais exercícios e aprofundar o uso de funções e estruturas mais avançadas, para desenvolver maior domínio da linguagem.</span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>BÊNDEVIDE, Ben. Curso de R para Ciência de Dados. Disponível em: https://bendeivide.github.io/courses/rcd/</span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>. Acesso em: 30 mar. 2026.</span>
+</code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
