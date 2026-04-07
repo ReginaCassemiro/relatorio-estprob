@@ -28,81 +28,87 @@ execute:
 
 ## 📌 Introdução
 
-A linguagem R é muito utilizada na área de estatística e análise de dados. Atualmente, com o crescimento da Ciência de Dados, aprender R se tornou importante para quem deseja trabalhar com análise e interpretação de informações.
+A linguagem R é muito utilizada na área de estatística e análise de dados, sendo bastante importante dentro da Ciência de Dados. Com o aumento do uso de dados em diversas áreas, aprender R se tornou essencial para estudantes e profissionais que precisam analisar e interpretar informações.
 
-Nesta aula prática, foi feita uma introdução à linguagem R, com o objetivo de conhecer seu funcionamento básico e aprender os primeiros comandos. A atividade ajudou a entender como o R pode ser utilizado no dia a dia acadêmico.
+Nesta aula prática, foi realizada uma introdução à linguagem R com base no curso R Básico 2024. Ao longo das aulas, foi possível conhecer desde os conceitos mais simples, como execução de comandos e criação de variáveis, até noções mais organizadas de estruturas de dados e uso de funções.
+
+O curso apresenta o conteúdo de forma progressiva, começando pelo ambiente de trabalho, passando pela manipulação de dados e chegando até conceitos como funções, estruturas de controle e uso de pacotes. Isso facilita bastante o aprendizado, principalmente para quem está tendo o primeiro contato com programação.
+
+A atividade permitiu entender melhor como o R funciona na prática e como ele pode ser utilizado no ambiente acadêmico para facilitar cálculos, organização de dados e análises.
 
 
 ## 🎯 Objetivos
 
-### Objetivo geral
+Aprender os conceitos básicos da linguagem R a partir das aulas do curso R Básico. 
 
-Aprender os conceitos básicos da linguagem R.
-
-### Objetivos específicos
-
+- Objetivos específicos
 - Conhecer o ambiente R e o RStudio
 - Executar comandos simples
-- Criar variáveis
-- Trabalhar com dados básicos  
-
----
+- Criar e manipular variáveis
+- Trabalhar com estruturas de dados básicas
+- Entender o uso de funções
+- Compreender a organização de códigos e scripts
 
 ## 📚  Fundamentação Teórica
-O R é uma linguagem de programação voltada para estatística e análise de dados. Ele permite fazer cálculos, organizar dados e gerar gráficos.
 
-Um ponto importante é que no R tudo funciona como objeto, ou seja, os dados são armazenados e podem ser manipulados depois. Além disso, usamos funções para realizar operações.
 
-Alguns conceitos básicos estudados foram:
+O R é uma linguagem de programação voltada para análise estatística e manipulação de dados. Durante o curso, foi possível observar que o R funciona de forma baseada em objetos, ou seja, tudo que é criado pode ser armazenado e reutilizado posteriormente.
 
-- Vetores (conjunto de valores)
-- Variáveis
-- Funções
-- Operações matemáticas
+Inicialmente, são apresentados conceitos básicos, como a utilização do console e a execução de comandos simples. Em seguida, o curso aborda a criação de variáveis, operações matemáticas e organização de arquivos.
 
-A média de um conjunto de dados pode ser calculada por:
+Outro ponto importante é o estudo das estruturas de dados, como vetores, matrizes, listas e data frames, que são fundamentais para organizar e analisar informações. Também são utilizadas funções, que permitem automatizar cálculos e facilitar o desenvolvimento dos códigos.
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+Além disso, são apresentadas estruturas de controle, como condições e repetições, que ajudam na tomada de decisões dentro do programa. O curso também destaca a importância da organização do código, incentivando o uso de boas práticas.
 
----
+Por fim, é introduzido o uso de pacotes, que ampliam as funcionalidades do R, permitindo realizar análises mais completas. Dessa forma, o conteúdo estudado fornece uma base sólida para o aprendizado da linguagem.
 
 ## ⚙️ Metodologia
 
-::: {.callout-note}
 A prática foi realizada no computador utilizando o RStudio.
 
-Durante a aula, foram feitos os seguintes passos:
+Realizados os seguintes procedimentos:
 
 - Abertura do RStudio
-- Teste de comandos no console
+- Execução de comandos no console
 - Criação de variáveis
-- Realização de operações simples
-- Testes com vetores
-:::
-
----
+- Realização de operações matemáticas
+- Manipulação de vetores e dados simples
+- Utilização de funções básicas
+- Observação dos resultados gerados
 
 ## 🔍 Resultados e Discussão
 
-Durante a atividade, foi possível perceber que o R é uma linguagem relativamente simples no início, principalmente para comandos básicos.
+Com base nas aulas do curso, percebe-se que o R vai se tornando mais completo conforme o conteúdo avança, principalmente com o uso de estruturas mais organizadas, funções e pacotes.
 
-Os testes realizados mostraram que é fácil criar variáveis e fazer cálculos. Também foi possível observar como os dados podem ser organizados em vetores.
-
-Apesar de ser simples no começo, dá para ver que a linguagem pode ficar mais complexa dependendo do uso. Mesmo assim, ela é muito útil para análise de dados.
-
-No geral, os resultados foram positivos e ajudaram a entender melhor o funcionamento do R.
+Mesmo podendo se tornar mais complexo com o tempo, o R se mostra uma ferramenta muito útil e eficiente para análise de dados. No geral, os resultados foram positivos e contribuíram para um bom entendimento inicial da linguagem.
 
 
 ## 🧠 Considerações finais
 
-A prática foi importante para ter o primeiro contato com a linguagem R.
+O estudo da linguagem R, com base nas 26 aulas do curso R Básico 2024, permitiu compreender seus conceitos fundamentais e suas aplicações na análise de dados.
 
-Foi possível aprender os comandos básicos e entender como o R funciona. Os objetivos foram alcançados, já que conseguimos executar comandos e trabalhar com dados simples.
+Ao longo da prática, foi possível observar que o R é uma ferramenta eficiente para realizar cálculos, organizar dados e aplicar conceitos estatísticos de forma simples. Os exemplos trabalhados ajudaram a entender melhor o funcionamento da linguagem na prática.
 
-Como melhoria, seria interessante fazer mais exercícios práticos para fixar melhor o conteúdo.
+Como exemplo, foi possível utilizar comandos básicos para criação de variáveis e cálculos:
 
+```{r}
+x <- 10
+y <- 5
+x + y
+```
+
+Também foi possível trabalhar com vetores e aplicar funções estatísticas:
+
+```{r}
+valores <- c(2, 4, 6, 8, 10)
+mean(valores)
+```
+
+Esses exemplos mostram como o R facilita a análise de dados mesmo em situações simples.
+
+Os objetivos propostos foram alcançados, pois foi possível compreender o funcionamento básico da linguagem e aplicar comandos na prática.
+
+Como continuidade, é importante realizar mais exercícios e aprofundar o uso de funções e estruturas mais avançadas, para desenvolver maior domínio da linguagem.
 
 ## 📖 Referências
 BÊNDEVIDE, Ben. Curso de R para Ciência de Dados. Disponível em: https://bendeivide.github.io/courses/rcd/
