@@ -9,7 +9,7 @@ links:
   - label: Relatórios
     url: "./relatorio/index.html"
   - label: Pagina Profissional
-    url: "https://github.com/ReginaCassemiro?tab=repositories"
+    url: "https://reginacassemiro.github.io/relatorio-estprob/"
 output:
   postcards::jolla
 ---

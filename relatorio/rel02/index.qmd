@@ -1,6 +1,6 @@
 ---
 # Só mude aqui!!!!
-author: "Nome do Aluno"
+author: "Regina Graziela Cassemiro de Almeida"
 title: "Relatório de Aula Prática 02"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
@@ -25,102 +25,126 @@ execute:
   message: false
 ---
 
+### 📌 Introdução 
 
-## 📌 Introdução
+Este relatório apresenta as principais funções estudadas na Aula 04 da disciplina de Linguagem R, com foco na manipulação de objetos no R.
 
-Descreva o contexto da prática e sua importância.
+Durante a aula, foram trabalhadas estruturas básicas como vetores e data frames, além de funções importantes para análise de dados, como `apply()`, `subset()` e funções de agrupamento. Também foram abordadas estruturas de controle, como `if`, `for` e `while`.
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+Neste trabalho, essas funções são descritas e aplicadas em exemplos práticos, permitindo compreender melhor como o R pode ser utilizado na organização, manipulação e análise de dados.
 
+### 🎯 Objetivos
 
+## Objetivo geral
 
-## 🎯 Objetivos
+Compreender e aplicar as principais funções de manipulação de dados apresentadas na Aula 04.
 
-### Objetivo geral
+## Objetivos específicos
 
-Descrever o objetivo principal da prática.
+- Trabalhar com vetores e data frames  
+- Utilizar diferentes formas de indexação  
+- Aplicar funções da família `apply`  
+- Manipular dados por grupos  
+- Utilizar estruturas de controle no R  
+- Aplicar os conceitos em um conjunto de dados para análise  
 
-### Objetivos específicos
+### 📚 Fundamentação Teórica
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+No R, os dados são armazenados em estruturas chamadas objetos. Entre os principais utilizados estão os vetores e os data frames.
 
----
+Os vetores armazenam elementos do mesmo tipo, enquanto os data frames organizam os dados em formato de tabela, permitindo trabalhar com diferentes tipos de variáveis.
 
-## 📚  Fundamentação Teórica
+Para manipulação desses dados, o R oferece diversas funções importantes. A família `apply` permite realizar operações de forma mais simples e eficiente, evitando o uso de laços repetitivos.
 
-Apresente os conceitos principais:
+Outras funções, como `subset`, `tapply` e `aggregate`, permitem filtrar dados e realizar cálculos por grupos. Já as funções `with` e `within` facilitam o acesso e a modificação de variáveis dentro de um data frame.
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+Além disso, estruturas de controle como `if`, `for` e `while` são utilizadas para controlar o fluxo de execução do código.
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
-
----
-
-## ⚙️ Metodologia
+### ⚙️ Metodologia
 
 ::: {.callout-note}
-Descreva como o experimento foi realizado.
+A prática foi realizada no RStudio, utilizando o script disponibilizado pelo professor na Aula 04.
 :::
 
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
+- Execução dos códigos apresentados em aula  
+- Criação de um conjunto de dados simples para testes  
+- Aplicação das funções estudadas  
+- - Utilização de dados simulados para análise
+- Análise dos resultados obtidos  
 
----
+### 🔍 Resultados e Discussão
 
-## 🔍 Resultados e Discussão
+Durante a realização da prática, foi possível observar como as funções do R facilitam a manipulação e análise de dados.
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
+Inicialmente, utilizando vetores, foi possível calcular médias e realizar filtragens de forma simples, principalmente com o uso de indexação lógica. Em seguida, com o uso de data frames, os dados puderam ser organizados em formato tabular, permitindo análises mais estruturadas.
 
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
+A função `subset()` mostrou-se bastante útil para filtrar dados de forma mais clara. Já a função `apply()` permitiu calcular médias por linha e por coluna de maneira mais rápida, sem a necessidade de utilizar estruturas de repetição.
 
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
+As funções `lapply()` e `sapply()` também foram utilizadas, sendo possível perceber que ambas aplicam funções em listas, porém o `sapply()` retorna os resultados de forma simplificada.
 
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
+Na aplicação com dados simulados`, foi possível analisar informações por grupos, utilizando funções como `tapply()` e `aggregate()`. Essas funções facilitaram a comparação entre diferentes espécies.
 
-Procure não apenas descrever, mas **interpretar os dados**.
+Em relação às estruturas de controle, como `for` e `if`, observou-se que elas funcionam corretamente, porém geram códigos mais longos quando comparadas às funções vetorizadas.
 
-### 💬 Exemplo de como citar uma referência bibliográfica
+De forma geral, os resultados obtidos foram satisfatórios, permitindo compreender na prática o uso das principais funções do R para análise de dados.
 
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-### 📊  Análise de Dados
+### 📊 Análise de Dados
 
 ```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
+# Vetor de notas
+notas <- c(7.5, 8.0, 6.5, 9.0, 5.5)
+
+# Cálculo da média
+mean(notas)
+
+# Filtrando alunos aprovados
+notas[notas >= 7]
+
+# Criando data frame
+dados <- data.frame(
+  matematica = c(7.5, 8.0, 6.5, 9.0, 5.5),
+  estatistica = c(8.0, 7.5, 6.0, 9.5, 6.0),
+  programacao = c(7.0, 8.5, 7.0, 9.0, 5.0)
+)
+
+# Criando dados simulados (substituindo a base penguins)
+dados_exemplo <- data.frame(
+  especie = c("A", "A", "B", "B", "C"),
+  massa = c(3500, 3700, 4000, 4200, 3900)
+)
+
+# Média da massa por espécie
+tapply(dados_exemplo$massa,
+       dados_exemplo$especie,
+       mean)
+
+# Quantidade por espécie
+table(dados_exemplo$especie)
+
+
+
 ```
 
 ## 🧠 Considerações finais
 
-Apresente uma síntese dos principais pontos observados no experimento.
+A realização desta prática permitiu compreender melhor como o R pode ser utilizado na manipulação e análise de dados.
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
+O objetivo do trabalho foi alcançado, uma vez que foi possível aplicar as principais funções apresentadas na Aula 04, tanto em dados simples quanto em em dados simulados
 
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+Como principal aprendizado, destaca-se o uso de funções vetorizadas, como `apply` e `tapply`, que tornam o código mais simples e eficiente quando comparado ao uso de estruturas como `for`.
 
-## Aprenda Quarto
+Os dados analisados apresentaram resultados coerentes, e a utilização de dados simulados contribuiu para uma melhor compreensão das funções aplicadas em situações reais.
 
-Acesse [Quarto](https://quarto.org/).
+Como sugestão de melhoria, seria interessante explorar gráficos e análises mais aprofundadas, utilizando conjuntos de dados maiores.
 
 ## 📖 Referências
+
+FERREIRA, Ben Dêivide de Oliveira. *Linguagem R na Ciência de Dados*. UFSJ.  
+Disponível em: <https://bendeivide.github.io/courses/rcd/>.
+
+FERREIRA, Ben Dêivide de Oliveira. *Slides Aula 04 — Manipulando Objetos em R*.  
+Disponível em: <https://bendeivide.github.io/slides/lrcd/s04/>.
+
+Script da Aula 04 disponibilizado pelo professor na disciplina.
+
+
