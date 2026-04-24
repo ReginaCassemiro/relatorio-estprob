@@ -1,7 +1,7 @@
 ---
 # Só mude aqui!!!!
-author: "Nome do Aluno"
-title: "Relatório de Aula Prática 03"
+author: "Regina Graziela Cassemiro de Almeida"
+title: "Relatório de Aula Prática 03 — Como usar o pacote leem no RStudio"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
 link-citations: true
@@ -25,102 +25,264 @@ execute:
   message: false
 ---
 
-
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
+A Estatística é uma ferramenta importante para organizar, analisar e interpretar dados. Atualmente, o uso de softwares facilita esses processos, tornando os cálculos mais rápidos e precisos.
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+Entre essas ferramentas destaca-se a linguagem **R**, juntamente com o pacote **LEEM**, desenvolvido para auxiliar no ensino de Estatística e Matemática de forma prática.
 
-
+Neste relatório serão apresentados os principais recursos do pacote LEEM no RStudio, conforme solicitado pelo professor, abordando instalação do ambiente, tabulação de dados, gráficos estatísticos, medidas descritivas, distribuições de probabilidade, intervalo de confiança e teste de hipóteses.
 
 ## 🎯 Objetivos
 
-### Objetivo geral
+### Objetivo Geral
 
-Descrever o objetivo principal da prática.
+Apresentar a utilização do pacote LEEM no RStudio por meio de aplicações estatísticas básicas.
 
-### Objetivos específicos
+### Objetivos Específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+- Instalar o R e o RStudio;
+- Instalar o pacote LEEM;
+- Demonstrar funções para tabulação de dados;
+- Construir gráficos estatísticos;
+- Calcular medidas de posição e dispersão;
+- Aplicar distribuições de probabilidade;
+- Apresentar intervalo de confiança;
+- Executar teste de hipóteses.
 
----
+## Instalação do R e RStudio
 
-## 📚  Fundamentação Teórica
+Para utilizar o pacote LEEM, primeiro é necessário instalar a linguagem **R**, que será responsável pela execução dos comandos estatísticos. Em seguida, recomenda-se instalar o **RStudio**, ambiente gráfico que facilita a criação de scripts, organização dos arquivos e visualização dos resultados.
 
-Apresente os conceitos principais:
+- Download do R: <https://cran.r-project.org/>
+- Download do RStudio: <https://posit.co/download/rstudio-desktop/>
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+Após a instalação dos programas, basta abrir o RStudio para começar a utilizar os recursos da linguagem R.
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+## Instalação do pacote LEEM
 
----
+Após instalar o R e o RStudio, o próximo passo é adicionar o pacote **LEEM** ao ambiente de trabalho. O LEEM (Laboratório de Ensino de Estatística e Matemática) foi desenvolvido com finalidade educacional e reúne funções voltadas para o estudo da Estatística de maneira prática e simplificada.
 
-## ⚙️ Metodologia
+Com esse pacote, é possível criar tabelas de frequência, gráficos estatísticos, calcular medidas descritivas, probabilidades e realizar testes estatísticos.
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
+A instalação pode ser feita diretamente no RStudio com o comando:
 
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
-
----
-
-## 🔍 Resultados e Discussão
-
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
-
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
-
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
-
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
-
-Procure não apenas descrever, mas **interpretar os dados**.
-
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-### 📊  Análise de Dados
-
-```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
+```r
+install.packages("leem")
 ```
 
-## 🧠 Considerações finais
+Após finalizar a instalação, é necessário carregar a biblioteca no ambiente:
 
-Apresente uma síntese dos principais pontos observados no experimento.
+- Carregar pacote LEEM
+```r
+library(leem)
+```
+Para verificar se o pacote está funcionando corretamente, pode-se utilizar:
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
+- Abrir interface do pacote
 
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+```r
+leem()
+```
+
+**Com isso, o pacote estará pronto para uso nos próximos comandos estatísticos**
+
+## Funções para tabulação de dados
+
+A tabulação de dados é utilizada para organizar informações em tabelas, facilitando a interpretação dos resultados. No pacote LEEM, esse processo permite transformar dados brutos em classes com suas respectivas frequências.
+
+Inicialmente, será criado um conjunto de dados aleatórios com distribuição normal. Em seguida, esses valores serão organizados em uma tabela de frequência.
+
+```r
+# Gerar dados aleatórios
+set.seed(10)
+dados <- rnorm(1000, mean = 100, sd = 2)
+
+# Transformar em objeto LEEM
+base <- new_leem(dados)
+
+# Criar tabela de frequência com 7 classes
+tab <- tabfreq(base, k = 7)
+
+# Exibir tabela
+tab
+
+```
+Explicação dos comandos:
+
+**set.seed(10):** fixa a sequência aleatória;
+
+**rnorm():** gera valores com distribuição normal;
+
+**new_leem():** transforma os dados em objeto compatível com o pacote;
+
+**tabfreq():** cria tabela de frequência;
+
+**k = 7:** define o número de classes.
+
+## Apresentações gráficas
+
+As apresentações gráficas são importantes para facilitar a visualização e interpretação dos dados. O pacote **LEEM** oferece recursos gráficos que auxiliam na análise estatística de forma prática e objetiva.
+
+Entre os principais gráficos disponíveis destacam-se o histograma, a ogiva e o gráfico de pizza.
+
+### Histograma
+
+O histograma permite visualizar a distribuição dos dados em classes, mostrando onde há maior concentração de valores.
+
+```r
+tab |>
+hist(
+freq = "p",
+bg = FALSE,
+barcol = heat.colors(7),
+xlab = "Variável X"
+)
+```
+
+### Ogiva
+
+A ogiva representa as frequências acumuladas, sendo útil para análise de medianas e percentuais acumulados.
+
+```r
+tab |>
+ogive(
+bars = TRUE,
+both = TRUE,
+barcol = c("blue","yellow"),
+lpcol = "red",
+pch = 8
+)
+```
+### Gráfico de Pizza
+
+O gráfico de pizza mostra a proporção de cada classe em relação ao total de dados.
+
+```r
+tab |>
+piechart()
+```
+
+## Medidas de posição e dispersão
+
+As medidas de posição e dispersão são utilizadas para resumir informações importantes de um conjunto de dados. Enquanto as medidas de posição indicam valores centrais, as medidas de dispersão mostram o grau de variação dos dados.
+
+### Medidas de posição
+
+No pacote **LEEM**, é possível calcular média, mediana e moda com o comando:
+
+```r
+tab |>
+mpos(grouped = FALSE)
+```
+
+Essas medidas ajudam a identificar o comportamento central dos dados analisados.
+
+### Medidas de dispersão
+
+Para avaliar a variabilidade dos dados, utilizam-se variância, desvio padrão e coeficiente de variação.
+
+### Variância
+
+```r
+tab |>
+variance()
+```
+
+### Desvio padrão
+
+```r
+tab |>
+sdev()
+```
+
+### Coeficiente de variação
+
+```r
+tab |>
+cv()
+```
+Esses resultados permitem verificar se os dados estão mais concentrados ou mais dispersos em relação à média.
+
+
+## Distribuições de probabilidades
+
+As distribuições de probabilidades são utilizadas para calcular a chance de ocorrência de determinados eventos aleatórios. No pacote **LEEM**, essas análises podem ser realizadas de forma simples por meio da função `P()`.
+
+Entre as distribuições mais utilizadas estão a normal e a binomial.
+
+### Distribuição Normal 
+
+A distribuição normal é bastante aplicada em estudos estatísticos, especialmente em fenômenos naturais e sociais.
+
+O exemplo abaixo calcula a probabilidade de um valor estar entre -1 e 1.
+
+```r
+P(-1 %<=X<=% 1, mean = 0, sd = 1)
+```
+
+### Distribuição Binomial
+
+A distribuição binomial é utilizada quando se deseja calcular a probabilidade de sucessos em um número fixo de tentativas.
+
+No exemplo a seguir, calcula-se a probabilidade de obter exatamente 5 sucessos em 10 tentativas, com chance de 50% em cada uma.
+
+```r
+P(5, dist = "binomial", size = 10, prob = 0.5)
+```
+
+Esses recursos mostram a utilidade do pacote LEEM em aplicações de probabilidade no ambiente R.
+
+## Intervalo de confiança
+
+O intervalo de confiança é uma técnica estatística utilizada para estimar parâmetros populacionais com base em dados amostrais. Em vez de apresentar apenas um valor único, fornece-se um intervalo no qual existe determinada confiança de que o parâmetro verdadeiro esteja localizado.
+
+Esse procedimento é muito utilizado para estimar médias, proporções e outros valores importantes em pesquisas e estudos estatísticos.
+
+Esse recurso pode ser aplicado por meio de funções estatísticas disponíveis no R, como o teste t.
+
+Exemplo de utilização:
+
+```r
+dados <- c(10,12,11,9,13,10,12,11)
+t.test(dados, conf.level = 0.95)
+```
+
+De modo geral, quanto maior o nível de confiança adotado, maior tende a ser a amplitude do intervalo estimado. Esse método auxilia na tomada de decisões com base em amostras.
+
+## Teste de hipóteses
+
+O teste de hipóteses é um procedimento estatístico utilizado para verificar se uma afirmação sobre determinada população pode ser aceita ou rejeitada com base em uma amostra de dados.
+
+Normalmente, trabalha-se com duas hipóteses:
+
+- **Hipótese nula (H₀):** representa a condição inicial a ser testada;  
+- **Hipótese alternativa (H₁):** representa a possibilidade contrária.
+
+Esse processo pode ser realizado no R por meio da função `t.test()`, utilizada para testes estatísticos de média.
+
+Exemplo de utilização:
+
+```r
+dados <- c(10,12,11,9,13,10,12,11)
+t.test(dados, mu = 10)
+```
+
+Após a análise do valor-p ou da região crítica, toma-se a decisão estatística sobre a hipótese formulada.
+
+Esse recurso é bastante importante em pesquisas científicas e estudos experimentais.
+
+## Considerações finais
+
+Com a realização desta atividade, foi possível compreender a importância do pacote **LEEM** no ensino da Estatística no ambiente R.
+
+O pacote facilita cálculos, tabelas e gráficos, tornando as análises mais rápidas e organizadas. Assim, conclui-se que o LEEM é uma ferramenta prática e eficiente para o aprendizado estatístico.
 
 ## Aprenda Quarto
 
 Acesse [Quarto](https://quarto.org/).
 
-## 📖 Referências
+## Referências
+
+LEEM. Laboratório de Ensino de Estatística e Matemática. Disponível em: https://bendeivide.github.io/courses/leem/
+

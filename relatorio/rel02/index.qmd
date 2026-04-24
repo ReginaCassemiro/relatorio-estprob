@@ -137,6 +137,12 @@ Os dados analisados apresentaram resultados coerentes, e a utilização de dados
 
 Como sugestão de melhoria, seria interessante explorar gráficos e análises mais aprofundadas, utilizando conjuntos de dados maiores.
 
+
+## Aprenda Quarto
+
+Acesse [Quarto](https://quarto.org/).
+
+
 ## 📖 Referências
 
 FERREIRA, Ben Dêivide de Oliveira. *Linguagem R na Ciência de Dados*. UFSJ.  
