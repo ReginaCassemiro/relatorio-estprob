@@ -1,0 +1,134 @@
+---
+# Só mude aqui!!!!
+author: "Regina Graziela Cassemiro de Almeida"
+title: "Relatório 01 - Introdução ao R"
+bibliography: referencias.bib
+# A partir daqui nao faca alteracoes!!!!!
+link-citations: true
+csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
+subtitle: "<a href='https://bendeivide.github.io/courses/epaec/' target='_blank'>Estatística e Probabilidade</a> </br> <a href='https://bendeivide.github.io' target='_blank'>Prof. Ben Dêivide (DEFIM/CAP/UFSJ)</a>"
+include-before-body: header.html
+date: now
+date-format: "DD/MM/YYYY, HH:mm"
+lang: pt-BR
+format:
+  html:
+    toc: true
+    number-sections: true
+    theme: bootstrap
+    #css: styles.css
+    code-fold: true
+    code-tools: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+
+## 📌 Introdução
+
+O R é uma linguagem de programação gratuita e de código aberto, desenvolvida especialmente para análise estatística e visualização de dados. Surgiu como uma implementação da linguagem S e hoje é amplamente utilizada por pesquisadores, cientistas de dados e engenheiros ao redor do mundo.
+
+Uma das grandes vantagens do R é sua capacidade de realizar desde operações matemáticas simples até análises estatísticas complexas, tudo dentro de um ambiente interativo chamado RStudio. Nele, é possível escrever scripts, visualizar gráficos, gerenciar arquivos e organizar projetos de forma prática.
+
+Nesta prática, foram estudados os fundamentos da linguagem R com base no curso R Básico 2024, explorando os principais conceitos necessários para iniciar o uso da linguagem no contexto acadêmico e científico.
+
+---
+
+## 🎯 Objetivos
+
+### Objetivo geral
+
+Compreender os conceitos fundamentais da linguagem R e do ambiente RStudio para aplicação em análises estatísticas.
+
+### Objetivos específicos
+
+- Conhecer o ambiente RStudio e suas principais funcionalidades
+- Aprender a criar e manipular objetos em R
+- Utilizar funções básicas da linguagem
+- Compreender os tipos de dados existentes no R
+- Desenvolver scripts simples para análise de dados
+
+---
+
+## 📚 Fundamentação Teórica
+
+O R trabalha com o conceito de que tudo é um objeto. Um objeto pode ser um número, um vetor, uma matriz, uma lista ou um conjunto de dados (data frame). A criação de objetos é feita pelo operador de atribuição `<-`, como no exemplo:
+
+```{r}
+x <- 10
+x
+```
+
+Os principais tipos de dados no R são:
+
+- **Numérico (numeric):** valores decimais, como `3.14`
+- **Inteiro (integer):** números inteiros, como `5L`
+- **Caractere (character):** texto, como `"Regina"`
+- **Lógico (logical):** valores `TRUE` ou `FALSE`
+
+As funções são chamadas pelo nome seguido de parênteses. Por exemplo, `mean()` calcula a média de um vetor, `sum()` calcula a soma e `length()` retorna o número de elementos.
+
+---
+
+## ⚙️ Metodologia
+
+O estudo foi realizado por meio das videoaulas do curso R Básico 2024, disponíveis no canal do YouTube do Prof. Ben Dêivide. As aulas foram acompanhadas de forma sequencial, praticando os exemplos diretamente no RStudio instalado no computador pessoal.
+
+Os comandos aprendidos foram testados no console e em scripts `.R`, permitindo verificar os resultados em tempo real e fixar o conteúdo estudado.
+
+---
+
+## 🔍 Resultados e Discussão
+
+Durante o estudo, foram praticados os principais comandos da linguagem R. A seguir estão alguns exemplos das operações realizadas:
+
+### 📊 Análise de Dados
+
+```{r}
+# Criando um vetor com valores numéricos
+valores <- c(5, 10, 15, 20, 25)
+
+# Calculando estatísticas básicas
+media <- mean(valores)
+desvio <- sd(valores)
+soma <- sum(valores)
+
+cat("Média:", media, "\n")
+cat("Desvio padrão:", desvio, "\n")
+cat("Soma:", soma, "\n")
+```
+
+```{r}
+# Tipos de objetos no R
+nome <- "Regina"
+idade <- 21
+aprovada <- TRUE
+
+class(nome)
+class(idade)
+class(aprovada)
+```
+
+Os resultados mostram que o R permite trabalhar com diferentes tipos de dados de forma simples e direta. A função `class()` identifica o tipo de cada objeto, o que é fundamental para entender como o R processa as informações.
+
+Observou-se que a linguagem possui uma sintaxe clara e intuitiva, facilitando o aprendizado para iniciantes. As funções básicas como `mean()`, `sum()` e `sd()` são suficientes para realizar as primeiras análises estatísticas.
+
+---
+
+## 🧠 Considerações finais
+
+O estudo dos fundamentos da linguagem R permitiu compreender a estrutura básica da linguagem e do ambiente RStudio. O objetivo da prática foi alcançado, pois foi possível criar objetos, utilizar funções e realizar operações simples de análise de dados.
+
+O aprendizado do R é gradual, mas os conceitos básicos já são suficientes para desenvolver análises iniciais. Ao longo do curso, esses fundamentos serão aprofundados com técnicas mais avançadas de manipulação e visualização de dados.
+
+Como melhoria, sugere-se a prática constante dos comandos aprendidos, criando scripts próprios para fixar o conteúdo e desenvolver fluência na linguagem.
+
+## Aprenda Quarto
+
+Acesse [Quarto](https://quarto.org/).
+
+## 📖 Referências
+
+[Curso R Básico 2024](https://bendeivide.github.io/courses/ear/rbasico2024/){target="_blank"}
