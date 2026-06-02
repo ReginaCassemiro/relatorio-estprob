@@ -1,15 +1,15 @@
 ---
-title: "Nome_Aluno(a)"
+title: "Regina Graziela Cassemiro de Almeida"
 image: "logo.png"
 links:
   - label: GitHub
-    url: "https://github.com/"
+    url: "https://github.com/ReginaCassemiro/relatorio-estprob"
   - label: Email
-    url: "mailto:name@gmail.com"
+    url: "cassemiroregina23@gmail.com"
   - label: Relatórios
     url: "./relatorio/index.html"
 output:
   postcards::jolla_blue
 ---
 
-Descrição ...
+Estudante de Engenharia Mecatrônica na UFSJ - Campus Alto Paraopeba
