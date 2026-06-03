@@ -1,7 +1,7 @@
 ---
 # Só mude aqui!!!!
-author: "Nome do Aluno"
-title: "Relatório de Aula Prática XX"
+author: "Regina Graziela Cassemiro de Almeida"
+title: "Relatório 5 - Análise Socioeconômica dos Estados Brasileiros com Visualização de Dados no R"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
 link-citations: true
