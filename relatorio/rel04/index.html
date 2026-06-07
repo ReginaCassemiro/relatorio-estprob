@@ -92,35 +92,6 @@ div.csl-indent {
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -138,12 +109,21 @@ window.Quarto = {
   <li><a href="#objetivo-geral" id="toc-objetivo-geral" class="nav-link" data-scroll-target="#objetivo-geral"><span class="header-section-number">2.1</span> Objetivo geral</a></li>
   <li><a href="#objetivos-específicos" id="toc-objetivos-específicos" class="nav-link" data-scroll-target="#objetivos-específicos"><span class="header-section-number">2.2</span> Objetivos específicos</a></li>
   </ul></li>
-  <li><a href="#fundamentação-teórica" id="toc-fundamentação-teórica" class="nav-link" data-scroll-target="#fundamentação-teórica"><span class="header-section-number">3</span> 📚 Fundamentação Teórica</a></li>
+  <li><a href="#fundamentação-teórica" id="toc-fundamentação-teórica" class="nav-link" data-scroll-target="#fundamentação-teórica"><span class="header-section-number">3</span> 📚 Fundamentação Teórica</a>
+  <ul class="collapse">
+  <li><a href="#estruturas-de-dados" id="toc-estruturas-de-dados" class="nav-link" data-scroll-target="#estruturas-de-dados"><span class="header-section-number">3.1</span> Estruturas de dados</a></li>
+  <li><a href="#visualização-da-estrutura" id="toc-visualização-da-estrutura" class="nav-link" data-scroll-target="#visualização-da-estrutura"><span class="header-section-number">3.2</span> Visualização da estrutura</a></li>
+  <li><a href="#filtragem-de-linhas" id="toc-filtragem-de-linhas" class="nav-link" data-scroll-target="#filtragem-de-linhas"><span class="header-section-number">3.3</span> Filtragem de linhas</a></li>
+  <li><a href="#seleção-de-colunas" id="toc-seleção-de-colunas" class="nav-link" data-scroll-target="#seleção-de-colunas"><span class="header-section-number">3.4</span> Seleção de colunas</a></li>
+  <li><a href="#criação-e-modificação-de-variáveis" id="toc-criação-e-modificação-de-variáveis" class="nav-link" data-scroll-target="#criação-e-modificação-de-variáveis"><span class="header-section-number">3.5</span> Criação e modificação de variáveis</a></li>
+  <li><a href="#agrupamento-e-resumo" id="toc-agrupamento-e-resumo" class="nav-link" data-scroll-target="#agrupamento-e-resumo"><span class="header-section-number">3.6</span> Agrupamento e resumo</a></li>
+  <li><a href="#ordenação" id="toc-ordenação" class="nav-link" data-scroll-target="#ordenação"><span class="header-section-number">3.7</span> Ordenação</a></li>
+  <li><a href="#iteração" id="toc-iteração" class="nav-link" data-scroll-target="#iteração"><span class="header-section-number">3.8</span> Iteração</a></li>
+  </ul></li>
   <li><a href="#metodologia" id="toc-metodologia" class="nav-link" data-scroll-target="#metodologia"><span class="header-section-number">4</span> ⚙️ Metodologia</a></li>
   <li><a href="#resultados-e-discussão" id="toc-resultados-e-discussão" class="nav-link" data-scroll-target="#resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</a>
   <ul class="collapse">
-  <li><a href="#exemplo-de-como-citar-uma-referência-bibliográfica" id="toc-exemplo-de-como-citar-uma-referência-bibliográfica" class="nav-link" data-scroll-target="#exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.1</span> 💬 Exemplo de como citar uma referência bibliográfica</a></li>
-  <li><a href="#análise-de-dados" id="toc-análise-de-dados" class="nav-link" data-scroll-target="#análise-de-dados"><span class="header-section-number">5.2</span> 📊 Análise de Dados</a></li>
+  <li><a href="#análise-de-dados" id="toc-análise-de-dados" class="nav-link" data-scroll-target="#análise-de-dados"><span class="header-section-number">5.1</span> 📊 Análise de Dados</a></li>
   </ul></li>
   <li><a href="#considerações-finais" id="toc-considerações-finais" class="nav-link" data-scroll-target="#considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações finais</a></li>
   <li><a href="#aprenda-quarto" id="toc-aprenda-quarto" class="nav-link" data-scroll-target="#aprenda-quarto"><span class="header-section-number">7</span> Aprenda Quarto</a></li>
@@ -181,7 +161,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2 de junho de 2026</p>
+      <p class="date">7 de junho de 2026</p>
     </div>
   </div>
   
@@ -195,118 +175,535 @@ window.Quarto = {
 
 <section id="introdução" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">1</span> 📌 Introdução</h2>
-<p>Descreva o contexto da prática e sua importância.</p>
-<blockquote class="blockquote">
-<p>Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.</p>
-</blockquote>
+<p>O R base disponibiliza um conjunto completo de funções para manipulação de dados. Com o desenvolvimento do ecossistema Tidyverse, surgiram funções alternativas que buscam oferecer uma sintaxe mais uniforme e legível, especialmente para análises encadeadas com o operador pipe (<code>|&gt;</code>). O Tidyverse é uma coleção de pacotes para ciência de dados que compartilham uma filosofia de design comum, sendo os principais o <code>dplyr</code>, <code>tidyr</code>, <code>ggplot2</code>, <code>stringr</code> e <code>purrr</code> <span class="citation" data-cites="tidyverse2019">(<a href="#ref-tidyverse2019" role="doc-biblioref">Wickham <em>et al.</em>, 2019</a>)</span>.</p>
+<p>Este relatório apresenta um comparativo direto entre as funções do R base, estudadas na <a href="https://bendeivide.github.io/slides/lrcd/s04/" target="_blank">Aula 4</a> <span class="citation" data-cites="scriptaula04">(<a href="#ref-scriptaula04" role="doc-biblioref">Batista, 2026a</a>)</span>, e as funções equivalentes do Tidyverse, apresentadas no <a href="https://bendeivide.github.io/lrcd/2026.1/LRCD2026.1_AULA05.R" target="_blank">Script da Aula 5</a> <span class="citation" data-cites="scriptaula05">(<a href="#ref-scriptaula05" role="doc-biblioref">Batista, 2026b</a>)</span>.</p>
+<hr>
 </section>
 <section id="objetivos" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="objetivos"><span class="header-section-number">2</span> 🎯 Objetivos</h2>
 <section id="objetivo-geral" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="objetivo-geral"><span class="header-section-number">2.1</span> Objetivo geral</h3>
-<p>Descrever o objetivo principal da prática.</p>
+<p>Comparar as funções de manipulação de dados do R base com as funções equivalentes da família de pacotes Tidyverse.</p>
 </section>
 <section id="objetivos-específicos" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="objetivos-específicos"><span class="header-section-number">2.2</span> Objetivos específicos</h3>
 <ul>
-<li>Coletar dados experimentais<br>
-</li>
-<li>Aplicar estatística descritiva<br>
-</li>
-<li>Construir gráficos<br>
-</li>
-<li>Interpretar resultados</li>
+<li>Comparar as estruturas de dados <code>data.frame</code> e <code>tibble</code></li>
+<li>Comparar funções de filtragem, seleção e criação de variáveis</li>
+<li>Comparar funções de agrupamento e resumo estatístico</li>
+<li>Comparar abordagens de iteração entre Base R e <code>purrr</code></li>
+<li>Identificar vantagens e limitações de cada abordagem</li>
 </ul>
 <hr>
 </section>
 </section>
 <section id="fundamentação-teórica" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="fundamentação-teórica"><span class="header-section-number">3</span> 📚 Fundamentação Teórica</h2>
-<p>Apresente os conceitos principais:</p>
-<ul>
-<li>Média</li>
-<li>Variância</li>
-<li>Desvio padrão</li>
-<li>Amostragem</li>
-</ul>
-<p><span class="math display">\[
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-\]</span></p>
+<section id="estruturas-de-dados" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="estruturas-de-dados"><span class="header-section-number">3.1</span> Estruturas de dados</h3>
+<p>O R base utiliza o <code>data.frame</code> como principal estrutura tabular. O Tidyverse introduz o <code>tibble</code>, que é uma versão moderna do <code>data.frame</code> com impressão mais legível e comportamento mais previsível <span class="citation" data-cites="tidyverse2019">(<a href="#ref-tidyverse2019" role="doc-biblioref">Wickham <em>et al.</em>, 2019</a>)</span>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: data.frame</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df_base <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">aluno =</span> <span class="fu">c</span>(<span class="st">"Ana"</span>, <span class="st">"Bruno"</span>, <span class="st">"Carlos"</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">nota  =</span> <span class="fu">c</span>(<span class="fl">7.5</span>, <span class="fl">8.0</span>, <span class="fl">6.5</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyverse: tibble</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df_tidy <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">aluno =</span> <span class="fu">c</span>(<span class="st">"Ana"</span>, <span class="st">"Bruno"</span>, <span class="st">"Carlos"</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">nota  =</span> <span class="fu">c</span>(<span class="fl">7.5</span>, <span class="fl">8.0</span>, <span class="fl">6.5</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>df_base</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   aluno nota
+1    Ana  7.5
+2  Bruno  8.0
+3 Carlos  6.5</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_tidy</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  aluno   nota
+  &lt;chr&gt;  &lt;dbl&gt;
+1 Ana      7.5
+2 Bruno    8  
+3 Carlos   6.5</code></pre>
+</div>
+</div>
+</section>
+<section id="visualização-da-estrutura" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="visualização-da-estrutura"><span class="header-section-number">3.2</span> Visualização da estrutura</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Base R</th>
+<th>Tidyverse</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>str()</code></td>
+<td><code>glimpse()</code></td>
+<td>Exibe a estrutura do objeto</td>
+</tr>
+<tr class="even">
+<td><code>summary()</code></td>
+<td><code>summarise()</code></td>
+<td>Resume os dados</td>
+</tr>
+<tr class="odd">
+<td><code>head()</code></td>
+<td><code>slice_head()</code></td>
+<td>Primeiras linhas</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="filtragem-de-linhas" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="filtragem-de-linhas"><span class="header-section-number">3.3</span> Filtragem de linhas</h3>
+<p>O R base utiliza indexação ou a função <code>subset()</code>. O Tidyverse utiliza <code>filter()</code>, que aceita múltiplas condições de forma mais legível:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dados de exemplo</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>vendas <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">produto       =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Notebook"</span>, <span class="st">"Mouse"</span>, <span class="st">"Teclado"</span>), <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">quantidade    =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">preco         =</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">2000</span>), <span class="dv">2</span>),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">estado        =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"SP"</span>, <span class="st">"MG"</span>, <span class="st">"RJ"</span>), <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>vendas<span class="sc">$</span>valor_total <span class="ot">&lt;-</span> vendas<span class="sc">$</span>quantidade <span class="sc">*</span> vendas<span class="sc">$</span>preco</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: subset()</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(vendas, valor_total <span class="sc">&gt;</span> <span class="dv">5000</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 5
+   produto  quantidade preco estado valor_total
+   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
+ 1 Teclado           7 1519. MG          10633.
+ 2 Mouse            10 1795. MG          17953.
+ 3 Mouse             9  780. RJ           7022.
+ 4 Mouse             5 1639. SP           8193.
+ 5 Notebook         10  925. MG           9246.
+ 6 Mouse             7 1630. MG          11407.
+ 7 Teclado           9 1634. SP          14707.
+ 8 Notebook          9 1599. MG          14391.
+ 9 Teclado          10  908. SP           9077.
+10 Teclado           7 1521. SP          10649.
+11 Notebook          5 1277. MG           6385.
+12 Notebook          7 1435. RJ          10044.</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyverse: filter()</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">|&gt;</span> <span class="fu">filter</span>(valor_total <span class="sc">&gt;</span> <span class="dv">5000</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 5
+   produto  quantidade preco estado valor_total
+   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
+ 1 Teclado           7 1519. MG          10633.
+ 2 Mouse            10 1795. MG          17953.
+ 3 Mouse             9  780. RJ           7022.
+ 4 Mouse             5 1639. SP           8193.
+ 5 Notebook         10  925. MG           9246.
+ 6 Mouse             7 1630. MG          11407.
+ 7 Teclado           9 1634. SP          14707.
+ 8 Notebook          9 1599. MG          14391.
+ 9 Teclado          10  908. SP           9077.
+10 Teclado           7 1521. SP          10649.
+11 Notebook          5 1277. MG           6385.
+12 Notebook          7 1435. RJ          10044.</code></pre>
+</div>
+</div>
+</section>
+<section id="seleção-de-colunas" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="seleção-de-colunas"><span class="header-section-number">3.4</span> Seleção de colunas</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: indexação por colchetes</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>vendas[, <span class="fu">c</span>(<span class="st">"produto"</span>, <span class="st">"valor_total"</span>)]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 2
+   produto  valor_total
+   &lt;chr&gt;          &lt;dbl&gt;
+ 1 Teclado        2589.
+ 2 Teclado        3432.
+ 3 Teclado        3622.
+ 4 Mouse          2987.
+ 5 Teclado       10633.
+ 6 Mouse         17953.
+ 7 Mouse          7022.
+ 8 Mouse          4041.
+ 9 Teclado         940.
+10 Notebook        799.
+11 Mouse          4095.
+12 Mouse          8193.
+13 Notebook       9246.
+14 Mouse         11407.
+15 Teclado       14707.
+16 Notebook      14391.
+17 Teclado        9077.
+18 Teclado       10649.
+19 Notebook       6385.
+20 Notebook      10044.</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyverse: select()</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">|&gt;</span> <span class="fu">select</span>(produto, valor_total)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 2
+   produto  valor_total
+   &lt;chr&gt;          &lt;dbl&gt;
+ 1 Teclado        2589.
+ 2 Teclado        3432.
+ 3 Teclado        3622.
+ 4 Mouse          2987.
+ 5 Teclado       10633.
+ 6 Mouse         17953.
+ 7 Mouse          7022.
+ 8 Mouse          4041.
+ 9 Teclado         940.
+10 Notebook        799.
+11 Mouse          4095.
+12 Mouse          8193.
+13 Notebook       9246.
+14 Mouse         11407.
+15 Teclado       14707.
+16 Notebook      14391.
+17 Teclado        9077.
+18 Teclado       10649.
+19 Notebook       6385.
+20 Notebook      10044.</code></pre>
+</div>
+</div>
+<p>O <code>select()</code> do Tidyverse oferece funções auxiliares como <code>starts_with()</code>, <code>ends_with()</code> e <code>contains()</code> para seleção por padrão de nome, o que não está disponível de forma nativa no R base.</p>
+</section>
+<section id="criação-e-modificação-de-variáveis" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="criação-e-modificação-de-variáveis"><span class="header-section-number">3.5</span> Criação e modificação de variáveis</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: atribuição direta</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>vendas<span class="sc">$</span>imposto <span class="ot">&lt;-</span> vendas<span class="sc">$</span>valor_total <span class="sc">*</span> <span class="fl">0.18</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyverse: mutate()</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">imposto =</span> valor_total <span class="sc">*</span> <span class="fl">0.18</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 6
+   produto  quantidade preco estado valor_total imposto
+   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+ 1 Teclado           9  288. SP           2589.    466.
+ 2 Teclado           3 1144. RJ           3432.    618.
+ 3 Teclado           8  453. MG           3622.    652.
+ 4 Mouse            10  299. RJ           2987.    538.
+ 5 Teclado           7 1519. MG          10633.   1914.
+ 6 Mouse            10 1795. MG          17953.   3232.
+ 7 Mouse             9  780. RJ           7022.   1264.
+ 8 Mouse             3 1347. MG           4041.    727.
+ 9 Teclado           4  235. MG            940.    169.
+10 Notebook          1  799. RJ            799.    144.
+11 Mouse             7  585. RJ           4095.    737.
+12 Mouse             5 1639. SP           8193.   1475.
+13 Notebook         10  925. MG           9246.   1664.
+14 Mouse             7 1630. MG          11407.   2053.
+15 Teclado           9 1634. SP          14707.   2647.
+16 Notebook          9 1599. MG          14391.   2590.
+17 Teclado          10  908. SP           9077.   1634.
+18 Teclado           7 1521. SP          10649.   1917.
+19 Notebook          5 1277. MG           6385.   1149.
+20 Notebook          7 1435. RJ          10044.   1808.</code></pre>
+</div>
+</div>
+<p>O <code>mutate()</code> permite criar múltiplas colunas em uma única chamada e usar colunas recém-criadas dentro da mesma expressão, o que no R base exigiria múltiplas atribuições separadas.</p>
+</section>
+<section id="agrupamento-e-resumo" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="agrupamento-e-resumo"><span class="header-section-number">3.6</span> Agrupamento e resumo</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: tapply()</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(vendas<span class="sc">$</span>valor_total, vendas<span class="sc">$</span>produto, mean)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Mouse Notebook  Teclado 
+7956.931 8172.898 6955.991 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: aggregate()</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(valor_total <span class="sc">~</span> produto, <span class="at">data =</span> vendas, mean)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   produto valor_total
+1    Mouse    7956.931
+2 Notebook    8172.898
+3  Teclado    6955.991</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyverse: group_by() + summarise()</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(produto) <span class="sc">|&gt;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_vendas  =</span> <span class="fu">n</span>(),</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">receita_total =</span> <span class="fu">sum</span>(valor_total),</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_valor   =</span> <span class="fu">mean</span>(valor_total),</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">desvio_padrao =</span> <span class="fu">sd</span>(valor_total)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 5
+  produto  total_vendas receita_total media_valor desvio_padrao
+  &lt;chr&gt;           &lt;int&gt;         &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;
+1 Mouse               7        55699.       7957.         5287.
+2 Notebook            5        40864.       8173.         5022.
+3 Teclado             8        55648.       6956.         4936.</code></pre>
+</div>
+</div>
+<p>O <code>group_by()</code> combinado com <code>summarise()</code> permite calcular múltiplas estatísticas por grupo em uma única operação encadeada, retornando sempre um <code>tibble</code> organizado.</p>
+</section>
+<section id="ordenação" class="level3" data-number="3.7">
+<h3 data-number="3.7" class="anchored" data-anchor-id="ordenação"><span class="header-section-number">3.7</span> Ordenação</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: order()</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>vendas[<span class="fu">order</span>(<span class="sc">-</span>vendas<span class="sc">$</span>valor_total), ]</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 6
+   produto  quantidade preco estado valor_total imposto
+   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+ 1 Mouse            10 1795. MG          17953.   3232.
+ 2 Teclado           9 1634. SP          14707.   2647.
+ 3 Notebook          9 1599. MG          14391.   2590.
+ 4 Mouse             7 1630. MG          11407.   2053.
+ 5 Teclado           7 1521. SP          10649.   1917.
+ 6 Teclado           7 1519. MG          10633.   1914.
+ 7 Notebook          7 1435. RJ          10044.   1808.
+ 8 Notebook         10  925. MG           9246.   1664.
+ 9 Teclado          10  908. SP           9077.   1634.
+10 Mouse             5 1639. SP           8193.   1475.
+11 Mouse             9  780. RJ           7022.   1264.
+12 Notebook          5 1277. MG           6385.   1149.
+13 Mouse             7  585. RJ           4095.    737.
+14 Mouse             3 1347. MG           4041.    727.
+15 Teclado           8  453. MG           3622.    652.
+16 Teclado           3 1144. RJ           3432.    618.
+17 Mouse            10  299. RJ           2987.    538.
+18 Teclado           9  288. SP           2589.    466.
+19 Teclado           4  235. MG            940.    169.
+20 Notebook          1  799. RJ            799.    144.</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyverse: arrange()</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(valor_total))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 6
+   produto  quantidade preco estado valor_total imposto
+   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+ 1 Mouse            10 1795. MG          17953.   3232.
+ 2 Teclado           9 1634. SP          14707.   2647.
+ 3 Notebook          9 1599. MG          14391.   2590.
+ 4 Mouse             7 1630. MG          11407.   2053.
+ 5 Teclado           7 1521. SP          10649.   1917.
+ 6 Teclado           7 1519. MG          10633.   1914.
+ 7 Notebook          7 1435. RJ          10044.   1808.
+ 8 Notebook         10  925. MG           9246.   1664.
+ 9 Teclado          10  908. SP           9077.   1634.
+10 Mouse             5 1639. SP           8193.   1475.
+11 Mouse             9  780. RJ           7022.   1264.
+12 Notebook          5 1277. MG           6385.   1149.
+13 Mouse             7  585. RJ           4095.    737.
+14 Mouse             3 1347. MG           4041.    727.
+15 Teclado           8  453. MG           3622.    652.
+16 Teclado           3 1144. RJ           3432.    618.
+17 Mouse            10  299. RJ           2987.    538.
+18 Teclado           9  288. SP           2589.    466.
+19 Teclado           4  235. MG            940.    169.
+20 Notebook          1  799. RJ            799.    144.</code></pre>
+</div>
+</div>
+</section>
+<section id="iteração" class="level3" data-number="3.8">
+<h3 data-number="3.8" class="anchored" data-anchor-id="iteração"><span class="header-section-number">3.8</span> Iteração</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: sapply()</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(vendas[, <span class="fu">c</span>(<span class="st">"quantidade"</span>, <span class="st">"preco"</span>, <span class="st">"valor_total"</span>)], mean)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> quantidade       preco valor_total 
+      7.000    1090.492    7610.547 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyverse: map_dbl() do pacote purrr</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(quantidade, preco, valor_total) <span class="sc">|&gt;</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_dbl</span>(mean)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> quantidade       preco valor_total 
+      7.000    1090.492    7610.547 </code></pre>
+</div>
+</div>
+<p>O pacote <code>purrr</code> oferece variantes tipadas como <code>map_dbl()</code>, <code>map_chr()</code> e <code>map_lgl()</code> que garantem o tipo de retorno, reduzindo erros em pipelines mais complexos.</p>
 <hr>
+</section>
 </section>
 <section id="metodologia" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="metodologia"><span class="header-section-number">4</span> ⚙️ Metodologia</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Descreva como o experimento foi realizado.</p>
-</div>
-</div>
-<ul>
-<li>Materiais utilizados<br>
-</li>
-<li>Procedimento<br>
-</li>
-<li>Número de repetições</li>
-</ul>
+<p>Os comparativos foram realizados utilizando um conjunto de dados de vendas criado artificialmente com a função <code>tibble()</code> e semente <code>set.seed(123)</code>. Para cada operação, foram apresentadas as abordagens em R base e em Tidyverse, executadas no RStudio com base nos scripts das Aulas 4 e 5 <span class="citation" data-cites="scriptaula04 scriptaula05">(<a href="#ref-scriptaula04" role="doc-biblioref">Batista, 2026a</a>; <a href="#ref-scriptaula05" role="doc-biblioref">b</a>)</span>.</p>
 <hr>
 </section>
 <section id="resultados-e-discussão" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</h2>
-<p>Apresente e interprete os resultados obtidos a partir dos dados coletados.</p>
-<ul>
-<li>Descreva os principais resultados numéricos (média, variabilidade, etc.).</li>
-<li>Comente o comportamento dos dados observados nos gráficos.</li>
-<li>Indique se há presença de valores discrepantes (outliers).</li>
-<li>Avalie se os dados apresentam simetria ou tendência.</li>
-</ul>
-<p>Em seguida, discuta os resultados à luz dos conceitos teóricos:</p>
-<ul>
-<li>Os resultados estão de acordo com o esperado?</li>
-<li>Há grande variabilidade? O que isso significa no contexto do experimento?</li>
-<li>Quais fatores podem ter influenciado os resultados?</li>
-<li>Existem possíveis fontes de erro experimental?</li>
-</ul>
-<p>Procure não apenas descrever, mas <strong>interpretar os dados</strong>.</p>
-<section id="exemplo-de-como-citar-uma-referência-bibliográfica" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.1</span> 💬 Exemplo de como citar uma referência bibliográfica</h3>
-<p>Depois de inserido as informaçõe no arquivo <strong>referencias.bib</strong>, use:</p>
-<ul>
-<li>Segundo <span class="citation" data-cites="Rbasico2022">Batista e Oliveira (<a href="#ref-Rbasico2022" role="doc-biblioref">2022</a>)</span></li>
-<li>Tudo é um objeto em R <span class="citation" data-cites="Rbasico2022">(<a href="#ref-Rbasico2022" role="doc-biblioref">Batista e Oliveira, 2022</a>)</span></li>
-</ul>
+<section id="análise-de-dados" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="análise-de-dados"><span class="header-section-number">5.1</span> 📊 Análise de Dados</h3>
+<section id="tabela-comparativa-geral" class="level4" data-number="5.1.1">
+<h4 data-number="5.1.1" class="anchored" data-anchor-id="tabela-comparativa-geral"><span class="header-section-number">5.1.1</span> Tabela comparativa geral</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operação</th>
+<th>Base R</th>
+<th>Tidyverse</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Criar tabela de dados</td>
+<td><code>data.frame()</code></td>
+<td><code>tibble()</code></td>
+</tr>
+<tr class="even">
+<td>Ver estrutura</td>
+<td><code>str()</code></td>
+<td><code>glimpse()</code></td>
+</tr>
+<tr class="odd">
+<td>Filtrar linhas</td>
+<td><code>subset()</code></td>
+<td><code>filter()</code></td>
+</tr>
+<tr class="even">
+<td>Selecionar colunas</td>
+<td><code>df[, cols]</code></td>
+<td><code>select()</code></td>
+</tr>
+<tr class="odd">
+<td>Criar variáveis</td>
+<td><code>df$col &lt;- ...</code></td>
+<td><code>mutate()</code></td>
+</tr>
+<tr class="even">
+<td>Agrupar</td>
+<td><code>tapply()</code>, <code>aggregate()</code></td>
+<td><code>group_by() + summarise()</code></td>
+</tr>
+<tr class="odd">
+<td>Ordenar</td>
+<td><code>order()</code></td>
+<td><code>arrange()</code></td>
+</tr>
+<tr class="even">
+<td>Iterar</td>
+<td><code>sapply()</code>, <code>lapply()</code></td>
+<td><code>map()</code>, <code>map_dbl()</code></td>
+</tr>
+<tr class="odd">
+<td>Remover NAs</td>
+<td><code>na.omit()</code></td>
+<td><code>drop_na()</code></td>
+</tr>
+<tr class="even">
+<td>Valores únicos</td>
+<td><code>unique()</code></td>
+<td><code>distinct()</code></td>
+</tr>
+<tr class="odd">
+<td>Contar por grupo</td>
+<td><code>table()</code></td>
+<td><code>count()</code></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="análise-de-dados" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="análise-de-dados"><span class="header-section-number">5.2</span> 📊 Análise de Dados</h3>
+<section id="aplicação-comparativa-completa" class="level4" data-number="5.1.2">
+<h4 data-number="5.1.2" class="anchored" data-anchor-id="aplicação-comparativa-completa"><span class="header-section-number">5.1.2</span> Aplicação comparativa completa</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>distancia</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumo por produto - Base R</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(valor_total <span class="sc">~</span> produto, <span class="at">data =</span> vendas, <span class="at">FUN =</span> <span class="cf">function</span>(x)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">media =</span> <span class="fu">mean</span>(x), <span class="at">desvio =</span> <span class="fu">sd</span>(x), <span class="at">total =</span> <span class="fu">sum</span>(x)))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.2  9.8 10.5 10.1  9.9 10.3</code></pre>
+<pre><code>   produto valor_total.media valor_total.desvio valor_total.total
+1    Mouse          7956.931           5286.989         55698.520
+2 Notebook          8172.898           5022.187         40864.490
+3  Teclado          6955.991           4935.822         55647.930</code></pre>
 </div>
 </div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumo por produto - Tidyverse</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">|&gt;</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(produto) <span class="sc">|&gt;</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">media  =</span> <span class="fu">mean</span>(valor_total),</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">desvio =</span> <span class="fu">sd</span>(valor_total),</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">total  =</span> <span class="fu">sum</span>(valor_total),</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  produto  media desvio  total
+  &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 Mouse    7957.  5287. 55699.
+2 Teclado  6956.  4936. 55648.
+3 Notebook 8173.  5022. 40864.</code></pre>
+</div>
+</div>
+<p>Os resultados mostram que ambas as abordagens produzem as mesmas informações. A diferença principal está na legibilidade: o código Tidyverse é mais fácil de ler e manter, especialmente quando há múltiplas operações encadeadas. O R base, por outro lado, não requer instalação de pacotes adicionais e tende a ser mais eficiente em conjuntos de dados menores.</p>
+<hr>
+</section>
 </section>
 </section>
 <section id="considerações-finais" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações finais</h2>
-<p>Apresente uma síntese dos principais pontos observados no experimento.</p>
-<ul>
-<li>Retome o objetivo da prática e indique se ele foi alcançado.</li>
-<li>Destaque os principais aprendizados obtidos.</li>
-<li>Comente brevemente sobre a qualidade dos dados coletados.</li>
-<li>Sugira possíveis melhorias no procedimento experimental.</li>
-</ul>
-<p>Evite repetir apenas os resultados; foque nas <strong>conclusões e reflexões</strong> sobre a prática realizada.</p>
+<p>O R base e o Tidyverse não são abordagens excludentes. O R base oferece estabilidade, menor dependência de pacotes externos e maior controle sobre as operações. O Tidyverse oferece uma sintaxe mais padronizada e expressiva, especialmente útil em análises exploratórias e pipelines complexos.</p>
+<p>O conhecimento de ambas as abordagens é importante para o cientista de dados, pois permite escolher a ferramenta mais adequada para cada situação.</p>
 </section>
 <section id="aprenda-quarto" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="aprenda-quarto"><span class="header-section-number">7</span> Aprenda Quarto</h2>
@@ -320,8 +717,14 @@ Nota
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">8 📖 Referências</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
-<div id="ref-Rbasico2022" class="csl-entry" role="listitem">
-BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro Branco, MG: [s.n.], 2022. p. 321
+<div id="ref-scriptaula04" class="csl-entry" role="listitem">
+BATISTA, B. D. DE O. <strong>Script da Aula 04 - Manipulando Objetos</strong>, a2026. Disponível em: &lt;<a href="https://bendeivide.github.io/lrcd/2026.1/LRCD2026.1_AULA04.R">https://bendeivide.github.io/lrcd/2026.1/LRCD2026.1_AULA04.R</a>&gt;
+</div>
+<div id="ref-scriptaula05" class="csl-entry" role="listitem">
+___. <strong>Script da Aula 05 - Manipulando Objetos (Tidyverse)</strong>, b2026. Disponível em: &lt;<a href="https://bendeivide.github.io/lrcd/2026.1/LRCD2026.1_AULA05.R">https://bendeivide.github.io/lrcd/2026.1/LRCD2026.1_AULA05.R</a>&gt;
+</div>
+<div id="ref-tidyverse2019" class="csl-entry" role="listitem">
+WICKHAM, H. <em>et al.</em> <a href="https://doi.org/10.21105/joss.01686">Welcome to the tidyverse</a>. <strong>Journal of Open Source Software</strong>, v. 4, n. 43, p. 1686, 2019.
 </div>
 </div></section></div></main>
 <!-- /main column -->
@@ -776,131 +1179,249 @@ BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Código fonte</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Regina Graziela Cassemiro de Almeida"</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório 4 - Comparativo entre as funções da Base R com as funções da família de pacotes Tidyverse."</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> true</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> associacao-brasileira-de-normas-tecnicas-ipea.csl</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "&lt;a href='https://bendeivide.github.io/courses/epaec/' target='_blank'&gt;Estatística e Probabilidade&lt;/a&gt; &lt;/br&gt; &lt;a href='https://bendeivide.github.io' target='_blank'&gt;Prof. Ben Dêivide (DEFIM/CAP/UFSJ)&lt;/a&gt;"</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="an">include-before-body:</span><span class="co"> header.html</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> today</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> pt-BR</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: bootstrap</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">    #css: styles.css</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>Descreva o contexto da prática e sua importância.</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>Descrever o objetivo principal da prática.</span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Coletar dados experimentais  </span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Aplicar estatística descritiva  </span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Construir gráficos  </span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interpretar resultados  </span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚  Fundamentação Teórica</span></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>Apresente os conceitos principais:</span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Média</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Variância</span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Desvio padrão</span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Amostragem</span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i</span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>Descreva como o experimento foi realizado.</span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Materiais utilizados  </span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Procedimento  </span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Número de repetições  </span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>Apresente e interprete os resultados obtidos a partir dos dados coletados.</span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Descreva os principais resultados numéricos (média, variabilidade, etc.).</span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente o comportamento dos dados observados nos gráficos.</span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Indique se há presença de valores discrepantes (outliers).</span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avalie se os dados apresentam simetria ou tendência.</span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>Em seguida, discuta os resultados à luz dos conceitos teóricos:</span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Os resultados estão de acordo com o esperado?</span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Há grande variabilidade? O que isso significa no contexto do experimento?</span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quais fatores podem ter influenciado os resultados?</span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Existem possíveis fontes de erro experimental?</span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>Procure não apenas descrever, mas **interpretar os dados**.</span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
-<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
-<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
-<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
-<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>distancia</span>
-<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
-<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
-<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retome o objetivo da prática e indique se ele foi alcançado.</span>
-<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Destaque os principais aprendizados obtidos.</span>
-<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente brevemente sobre a qualidade dos dados coletados.</span>
-<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sugira possíveis melhorias no procedimento experimental.</span>
-<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.</span>
-<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
-<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
-<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Regina Graziela Cassemiro de Almeida"</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório 4 - Comparativo entre as funções da Base R com as funções da família de pacotes Tidyverse."</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> true</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> associacao-brasileira-de-normas-tecnicas-ipea.csl</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "&lt;a href='https://bendeivide.github.io/courses/epaec/' target='_blank'&gt;Estatística e Probabilidade&lt;/a&gt; &lt;/br&gt; &lt;a href='https://bendeivide.github.io' target='_blank'&gt;Prof. Ben Dêivide (DEFIM/CAP/UFSJ)&lt;/a&gt;"</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="an">include-before-body:</span><span class="co"> header.html</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> today</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> pt-BR</span></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: bootstrap</span></span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a><span class="co">    #css: styles.css</span></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução</span></span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>O R base disponibiliza um conjunto completo de funções para manipulação de dados. Com o desenvolvimento do ecossistema Tidyverse, surgiram funções alternativas que buscam oferecer uma sintaxe mais uniforme e legível, especialmente para análises encadeadas com o operador pipe (<span class="in">`|&gt;`</span>). O Tidyverse é uma coleção de pacotes para ciência de dados que compartilham uma filosofia de design comum, sendo os principais o <span class="in">`dplyr`</span>, <span class="in">`tidyr`</span>, <span class="in">`ggplot2`</span>, <span class="in">`stringr`</span> e <span class="in">`purrr`</span> <span class="co">[</span><span class="ot">@tidyverse2019</span><span class="co">]</span>.</span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>Este relatório apresenta um comparativo direto entre as funções do R base, estudadas na <span class="co">[</span><span class="ot">Aula 4</span><span class="co">](https://bendeivide.github.io/slides/lrcd/s04/)</span>{target="_blank"} <span class="co">[</span><span class="ot">@scriptaula04</span><span class="co">]</span>, e as funções equivalentes do Tidyverse, apresentadas no <span class="co">[</span><span class="ot">Script da Aula 5</span><span class="co">](https://bendeivide.github.io/lrcd/2026.1/LRCD2026.1_AULA05.R)</span>{target="_blank"} <span class="co">[</span><span class="ot">@scriptaula05</span><span class="co">]</span>.</span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
+<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
+<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a>Comparar as funções de manipulação de dados do R base com as funções equivalentes da família de pacotes Tidyverse.</span>
+<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
+<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comparar as estruturas de dados <span class="in">`data.frame`</span> e <span class="in">`tibble`</span></span>
+<span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comparar funções de filtragem, seleção e criação de variáveis</span>
+<span id="cb34-45"><a href="#cb34-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comparar funções de agrupamento e resumo estatístico</span>
+<span id="cb34-46"><a href="#cb34-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comparar abordagens de iteração entre Base R e <span class="in">`purrr`</span></span>
+<span id="cb34-47"><a href="#cb34-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identificar vantagens e limitações de cada abordagem</span>
+<span id="cb34-48"><a href="#cb34-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-49"><a href="#cb34-49" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb34-50"><a href="#cb34-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-51"><a href="#cb34-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚 Fundamentação Teórica</span></span>
+<span id="cb34-52"><a href="#cb34-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-53"><a href="#cb34-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### Estruturas de dados</span></span>
+<span id="cb34-54"><a href="#cb34-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-55"><a href="#cb34-55" aria-hidden="true" tabindex="-1"></a>O R base utiliza o <span class="in">`data.frame`</span> como principal estrutura tabular. O Tidyverse introduz o <span class="in">`tibble`</span>, que é uma versão moderna do <span class="in">`data.frame`</span> com impressão mais legível e comportamento mais previsível <span class="co">[</span><span class="ot">@tidyverse2019</span><span class="co">]</span>.</span>
+<span id="cb34-56"><a href="#cb34-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-59"><a href="#cb34-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb34-60"><a href="#cb34-60" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb34-61"><a href="#cb34-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-62"><a href="#cb34-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: data.frame</span></span>
+<span id="cb34-63"><a href="#cb34-63" aria-hidden="true" tabindex="-1"></a>df_base <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb34-64"><a href="#cb34-64" aria-hidden="true" tabindex="-1"></a>  <span class="at">aluno =</span> <span class="fu">c</span>(<span class="st">"Ana"</span>, <span class="st">"Bruno"</span>, <span class="st">"Carlos"</span>),</span>
+<span id="cb34-65"><a href="#cb34-65" aria-hidden="true" tabindex="-1"></a>  <span class="at">nota  =</span> <span class="fu">c</span>(<span class="fl">7.5</span>, <span class="fl">8.0</span>, <span class="fl">6.5</span>)</span>
+<span id="cb34-66"><a href="#cb34-66" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-67"><a href="#cb34-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-68"><a href="#cb34-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyverse: tibble</span></span>
+<span id="cb34-69"><a href="#cb34-69" aria-hidden="true" tabindex="-1"></a>df_tidy <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb34-70"><a href="#cb34-70" aria-hidden="true" tabindex="-1"></a>  <span class="at">aluno =</span> <span class="fu">c</span>(<span class="st">"Ana"</span>, <span class="st">"Bruno"</span>, <span class="st">"Carlos"</span>),</span>
+<span id="cb34-71"><a href="#cb34-71" aria-hidden="true" tabindex="-1"></a>  <span class="at">nota  =</span> <span class="fu">c</span>(<span class="fl">7.5</span>, <span class="fl">8.0</span>, <span class="fl">6.5</span>)</span>
+<span id="cb34-72"><a href="#cb34-72" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-73"><a href="#cb34-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-74"><a href="#cb34-74" aria-hidden="true" tabindex="-1"></a>df_base</span>
+<span id="cb34-75"><a href="#cb34-75" aria-hidden="true" tabindex="-1"></a>df_tidy</span>
+<span id="cb34-76"><a href="#cb34-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-77"><a href="#cb34-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-78"><a href="#cb34-78" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualização da estrutura</span></span>
+<span id="cb34-79"><a href="#cb34-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-80"><a href="#cb34-80" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Base R <span class="pp">|</span> Tidyverse <span class="pp">|</span> Descrição <span class="pp">|</span></span>
+<span id="cb34-81"><a href="#cb34-81" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------|-----------|-----------|</span></span>
+<span id="cb34-82"><a href="#cb34-82" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`str()`</span> <span class="pp">|</span> <span class="in">`glimpse()`</span> <span class="pp">|</span> Exibe a estrutura do objeto <span class="pp">|</span></span>
+<span id="cb34-83"><a href="#cb34-83" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`summary()`</span> <span class="pp">|</span> <span class="in">`summarise()`</span> <span class="pp">|</span> Resume os dados <span class="pp">|</span></span>
+<span id="cb34-84"><a href="#cb34-84" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`head()`</span> <span class="pp">|</span> <span class="in">`slice_head()`</span> <span class="pp">|</span> Primeiras linhas <span class="pp">|</span></span>
+<span id="cb34-85"><a href="#cb34-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-86"><a href="#cb34-86" aria-hidden="true" tabindex="-1"></a><span class="fu">### Filtragem de linhas</span></span>
+<span id="cb34-87"><a href="#cb34-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-88"><a href="#cb34-88" aria-hidden="true" tabindex="-1"></a>O R base utiliza indexação ou a função <span class="in">`subset()`</span>. O Tidyverse utiliza <span class="in">`filter()`</span>, que aceita múltiplas condições de forma mais legível:</span>
+<span id="cb34-89"><a href="#cb34-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-92"><a href="#cb34-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb34-93"><a href="#cb34-93" aria-hidden="true" tabindex="-1"></a><span class="co"># Dados de exemplo</span></span>
+<span id="cb34-94"><a href="#cb34-94" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb34-95"><a href="#cb34-95" aria-hidden="true" tabindex="-1"></a>vendas <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb34-96"><a href="#cb34-96" aria-hidden="true" tabindex="-1"></a>  <span class="at">produto       =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Notebook"</span>, <span class="st">"Mouse"</span>, <span class="st">"Teclado"</span>), <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb34-97"><a href="#cb34-97" aria-hidden="true" tabindex="-1"></a>  <span class="at">quantidade    =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb34-98"><a href="#cb34-98" aria-hidden="true" tabindex="-1"></a>  <span class="at">preco         =</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">2000</span>), <span class="dv">2</span>),</span>
+<span id="cb34-99"><a href="#cb34-99" aria-hidden="true" tabindex="-1"></a>  <span class="at">estado        =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"SP"</span>, <span class="st">"MG"</span>, <span class="st">"RJ"</span>), <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb34-100"><a href="#cb34-100" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-101"><a href="#cb34-101" aria-hidden="true" tabindex="-1"></a>vendas<span class="sc">$</span>valor_total <span class="ot">&lt;-</span> vendas<span class="sc">$</span>quantidade <span class="sc">*</span> vendas<span class="sc">$</span>preco</span>
+<span id="cb34-102"><a href="#cb34-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-103"><a href="#cb34-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-106"><a href="#cb34-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb34-107"><a href="#cb34-107" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: subset()</span></span>
+<span id="cb34-108"><a href="#cb34-108" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(vendas, valor_total <span class="sc">&gt;</span> <span class="dv">5000</span>)</span>
+<span id="cb34-109"><a href="#cb34-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-110"><a href="#cb34-110" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyverse: filter()</span></span>
+<span id="cb34-111"><a href="#cb34-111" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">|&gt;</span> <span class="fu">filter</span>(valor_total <span class="sc">&gt;</span> <span class="dv">5000</span>)</span>
+<span id="cb34-112"><a href="#cb34-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-113"><a href="#cb34-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-114"><a href="#cb34-114" aria-hidden="true" tabindex="-1"></a><span class="fu">### Seleção de colunas</span></span>
+<span id="cb34-115"><a href="#cb34-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-118"><a href="#cb34-118" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb34-119"><a href="#cb34-119" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: indexação por colchetes</span></span>
+<span id="cb34-120"><a href="#cb34-120" aria-hidden="true" tabindex="-1"></a>vendas[, <span class="fu">c</span>(<span class="st">"produto"</span>, <span class="st">"valor_total"</span>)]</span>
+<span id="cb34-121"><a href="#cb34-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-122"><a href="#cb34-122" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyverse: select()</span></span>
+<span id="cb34-123"><a href="#cb34-123" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">|&gt;</span> <span class="fu">select</span>(produto, valor_total)</span>
+<span id="cb34-124"><a href="#cb34-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-125"><a href="#cb34-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-126"><a href="#cb34-126" aria-hidden="true" tabindex="-1"></a>O <span class="in">`select()`</span> do Tidyverse oferece funções auxiliares como <span class="in">`starts_with()`</span>, <span class="in">`ends_with()`</span> e <span class="in">`contains()`</span> para seleção por padrão de nome, o que não está disponível de forma nativa no R base.</span>
+<span id="cb34-127"><a href="#cb34-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-128"><a href="#cb34-128" aria-hidden="true" tabindex="-1"></a><span class="fu">### Criação e modificação de variáveis</span></span>
+<span id="cb34-129"><a href="#cb34-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-132"><a href="#cb34-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb34-133"><a href="#cb34-133" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: atribuição direta</span></span>
+<span id="cb34-134"><a href="#cb34-134" aria-hidden="true" tabindex="-1"></a>vendas<span class="sc">$</span>imposto <span class="ot">&lt;-</span> vendas<span class="sc">$</span>valor_total <span class="sc">*</span> <span class="fl">0.18</span></span>
+<span id="cb34-135"><a href="#cb34-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-136"><a href="#cb34-136" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyverse: mutate()</span></span>
+<span id="cb34-137"><a href="#cb34-137" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">imposto =</span> valor_total <span class="sc">*</span> <span class="fl">0.18</span>)</span>
+<span id="cb34-138"><a href="#cb34-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-139"><a href="#cb34-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-140"><a href="#cb34-140" aria-hidden="true" tabindex="-1"></a>O <span class="in">`mutate()`</span> permite criar múltiplas colunas em uma única chamada e usar colunas recém-criadas dentro da mesma expressão, o que no R base exigiria múltiplas atribuições separadas.</span>
+<span id="cb34-141"><a href="#cb34-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-142"><a href="#cb34-142" aria-hidden="true" tabindex="-1"></a><span class="fu">### Agrupamento e resumo</span></span>
+<span id="cb34-143"><a href="#cb34-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-146"><a href="#cb34-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb34-147"><a href="#cb34-147" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: tapply()</span></span>
+<span id="cb34-148"><a href="#cb34-148" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(vendas<span class="sc">$</span>valor_total, vendas<span class="sc">$</span>produto, mean)</span>
+<span id="cb34-149"><a href="#cb34-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-150"><a href="#cb34-150" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: aggregate()</span></span>
+<span id="cb34-151"><a href="#cb34-151" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(valor_total <span class="sc">~</span> produto, <span class="at">data =</span> vendas, mean)</span>
+<span id="cb34-152"><a href="#cb34-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-153"><a href="#cb34-153" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyverse: group_by() + summarise()</span></span>
+<span id="cb34-154"><a href="#cb34-154" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">|&gt;</span></span>
+<span id="cb34-155"><a href="#cb34-155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(produto) <span class="sc">|&gt;</span></span>
+<span id="cb34-156"><a href="#cb34-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb34-157"><a href="#cb34-157" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_vendas  =</span> <span class="fu">n</span>(),</span>
+<span id="cb34-158"><a href="#cb34-158" aria-hidden="true" tabindex="-1"></a>    <span class="at">receita_total =</span> <span class="fu">sum</span>(valor_total),</span>
+<span id="cb34-159"><a href="#cb34-159" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_valor   =</span> <span class="fu">mean</span>(valor_total),</span>
+<span id="cb34-160"><a href="#cb34-160" aria-hidden="true" tabindex="-1"></a>    <span class="at">desvio_padrao =</span> <span class="fu">sd</span>(valor_total)</span>
+<span id="cb34-161"><a href="#cb34-161" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb34-162"><a href="#cb34-162" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-163"><a href="#cb34-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-164"><a href="#cb34-164" aria-hidden="true" tabindex="-1"></a>O <span class="in">`group_by()`</span> combinado com <span class="in">`summarise()`</span> permite calcular múltiplas estatísticas por grupo em uma única operação encadeada, retornando sempre um <span class="in">`tibble`</span> organizado.</span>
+<span id="cb34-165"><a href="#cb34-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-166"><a href="#cb34-166" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ordenação</span></span>
+<span id="cb34-167"><a href="#cb34-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-170"><a href="#cb34-170" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb34-171"><a href="#cb34-171" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: order()</span></span>
+<span id="cb34-172"><a href="#cb34-172" aria-hidden="true" tabindex="-1"></a>vendas[<span class="fu">order</span>(<span class="sc">-</span>vendas<span class="sc">$</span>valor_total), ]</span>
+<span id="cb34-173"><a href="#cb34-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-174"><a href="#cb34-174" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyverse: arrange()</span></span>
+<span id="cb34-175"><a href="#cb34-175" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(valor_total))</span>
+<span id="cb34-176"><a href="#cb34-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-177"><a href="#cb34-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-178"><a href="#cb34-178" aria-hidden="true" tabindex="-1"></a><span class="fu">### Iteração</span></span>
+<span id="cb34-179"><a href="#cb34-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-182"><a href="#cb34-182" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb34-183"><a href="#cb34-183" aria-hidden="true" tabindex="-1"></a><span class="co"># Base R: sapply()</span></span>
+<span id="cb34-184"><a href="#cb34-184" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(vendas[, <span class="fu">c</span>(<span class="st">"quantidade"</span>, <span class="st">"preco"</span>, <span class="st">"valor_total"</span>)], mean)</span>
+<span id="cb34-185"><a href="#cb34-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-186"><a href="#cb34-186" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyverse: map_dbl() do pacote purrr</span></span>
+<span id="cb34-187"><a href="#cb34-187" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">|&gt;</span></span>
+<span id="cb34-188"><a href="#cb34-188" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(quantidade, preco, valor_total) <span class="sc">|&gt;</span></span>
+<span id="cb34-189"><a href="#cb34-189" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_dbl</span>(mean)</span>
+<span id="cb34-190"><a href="#cb34-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-191"><a href="#cb34-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-192"><a href="#cb34-192" aria-hidden="true" tabindex="-1"></a>O pacote <span class="in">`purrr`</span> oferece variantes tipadas como <span class="in">`map_dbl()`</span>, <span class="in">`map_chr()`</span> e <span class="in">`map_lgl()`</span> que garantem o tipo de retorno, reduzindo erros em pipelines mais complexos.</span>
+<span id="cb34-193"><a href="#cb34-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-194"><a href="#cb34-194" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb34-195"><a href="#cb34-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-196"><a href="#cb34-196" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
+<span id="cb34-197"><a href="#cb34-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-198"><a href="#cb34-198" aria-hidden="true" tabindex="-1"></a>Os comparativos foram realizados utilizando um conjunto de dados de vendas criado artificialmente com a função <span class="in">`tibble()`</span> e semente <span class="in">`set.seed(123)`</span>. Para cada operação, foram apresentadas as abordagens em R base e em Tidyverse, executadas no RStudio com base nos scripts das Aulas 4 e 5 <span class="co">[</span><span class="ot">@scriptaula04; @scriptaula05</span><span class="co">]</span>.</span>
+<span id="cb34-199"><a href="#cb34-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-200"><a href="#cb34-200" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb34-201"><a href="#cb34-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-202"><a href="#cb34-202" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
+<span id="cb34-203"><a href="#cb34-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-204"><a href="#cb34-204" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊 Análise de Dados</span></span>
+<span id="cb34-205"><a href="#cb34-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-206"><a href="#cb34-206" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Tabela comparativa geral</span></span>
+<span id="cb34-207"><a href="#cb34-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-208"><a href="#cb34-208" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Operação <span class="pp">|</span> Base R <span class="pp">|</span> Tidyverse <span class="pp">|</span></span>
+<span id="cb34-209"><a href="#cb34-209" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|--------|-----------|</span></span>
+<span id="cb34-210"><a href="#cb34-210" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Criar tabela de dados <span class="pp">|</span> <span class="in">`data.frame()`</span> <span class="pp">|</span> <span class="in">`tibble()`</span> <span class="pp">|</span></span>
+<span id="cb34-211"><a href="#cb34-211" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Ver estrutura <span class="pp">|</span> <span class="in">`str()`</span> <span class="pp">|</span> <span class="in">`glimpse()`</span> <span class="pp">|</span></span>
+<span id="cb34-212"><a href="#cb34-212" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Filtrar linhas <span class="pp">|</span> <span class="in">`subset()`</span> <span class="pp">|</span> <span class="in">`filter()`</span> <span class="pp">|</span></span>
+<span id="cb34-213"><a href="#cb34-213" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Selecionar colunas <span class="pp">|</span> <span class="in">`df[, cols]`</span> <span class="pp">|</span> <span class="in">`select()`</span> <span class="pp">|</span></span>
+<span id="cb34-214"><a href="#cb34-214" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Criar variáveis <span class="pp">|</span> <span class="in">`df$col &lt;- ...`</span> <span class="pp">|</span> <span class="in">`mutate()`</span> <span class="pp">|</span></span>
+<span id="cb34-215"><a href="#cb34-215" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Agrupar <span class="pp">|</span> <span class="in">`tapply()`</span>, <span class="in">`aggregate()`</span> <span class="pp">|</span> <span class="in">`group_by() + summarise()`</span> <span class="pp">|</span></span>
+<span id="cb34-216"><a href="#cb34-216" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Ordenar <span class="pp">|</span> <span class="in">`order()`</span> <span class="pp">|</span> <span class="in">`arrange()`</span> <span class="pp">|</span></span>
+<span id="cb34-217"><a href="#cb34-217" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Iterar <span class="pp">|</span> <span class="in">`sapply()`</span>, <span class="in">`lapply()`</span> <span class="pp">|</span> <span class="in">`map()`</span>, <span class="in">`map_dbl()`</span> <span class="pp">|</span></span>
+<span id="cb34-218"><a href="#cb34-218" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Remover NAs <span class="pp">|</span> <span class="in">`na.omit()`</span> <span class="pp">|</span> <span class="in">`drop_na()`</span> <span class="pp">|</span></span>
+<span id="cb34-219"><a href="#cb34-219" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Valores únicos <span class="pp">|</span> <span class="in">`unique()`</span> <span class="pp">|</span> <span class="in">`distinct()`</span> <span class="pp">|</span></span>
+<span id="cb34-220"><a href="#cb34-220" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Contar por grupo <span class="pp">|</span> <span class="in">`table()`</span> <span class="pp">|</span> <span class="in">`count()`</span> <span class="pp">|</span></span>
+<span id="cb34-221"><a href="#cb34-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-222"><a href="#cb34-222" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Aplicação comparativa completa</span></span>
+<span id="cb34-223"><a href="#cb34-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-226"><a href="#cb34-226" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb34-227"><a href="#cb34-227" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumo por produto - Base R</span></span>
+<span id="cb34-228"><a href="#cb34-228" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(valor_total <span class="sc">~</span> produto, <span class="at">data =</span> vendas, <span class="at">FUN =</span> <span class="cf">function</span>(x)</span>
+<span id="cb34-229"><a href="#cb34-229" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">media =</span> <span class="fu">mean</span>(x), <span class="at">desvio =</span> <span class="fu">sd</span>(x), <span class="at">total =</span> <span class="fu">sum</span>(x)))</span>
+<span id="cb34-230"><a href="#cb34-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-231"><a href="#cb34-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-234"><a href="#cb34-234" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb34-235"><a href="#cb34-235" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumo por produto - Tidyverse</span></span>
+<span id="cb34-236"><a href="#cb34-236" aria-hidden="true" tabindex="-1"></a>vendas <span class="sc">|&gt;</span></span>
+<span id="cb34-237"><a href="#cb34-237" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(produto) <span class="sc">|&gt;</span></span>
+<span id="cb34-238"><a href="#cb34-238" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb34-239"><a href="#cb34-239" aria-hidden="true" tabindex="-1"></a>    <span class="at">media  =</span> <span class="fu">mean</span>(valor_total),</span>
+<span id="cb34-240"><a href="#cb34-240" aria-hidden="true" tabindex="-1"></a>    <span class="at">desvio =</span> <span class="fu">sd</span>(valor_total),</span>
+<span id="cb34-241"><a href="#cb34-241" aria-hidden="true" tabindex="-1"></a>    <span class="at">total  =</span> <span class="fu">sum</span>(valor_total),</span>
+<span id="cb34-242"><a href="#cb34-242" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb34-243"><a href="#cb34-243" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb34-244"><a href="#cb34-244" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total))</span>
+<span id="cb34-245"><a href="#cb34-245" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-246"><a href="#cb34-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-247"><a href="#cb34-247" aria-hidden="true" tabindex="-1"></a>Os resultados mostram que ambas as abordagens produzem as mesmas informações. A diferença principal está na legibilidade: o código Tidyverse é mais fácil de ler e manter, especialmente quando há múltiplas operações encadeadas. O R base, por outro lado, não requer instalação de pacotes adicionais e tende a ser mais eficiente em conjuntos de dados menores.</span>
+<span id="cb34-248"><a href="#cb34-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-249"><a href="#cb34-249" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb34-250"><a href="#cb34-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-251"><a href="#cb34-251" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
+<span id="cb34-252"><a href="#cb34-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-253"><a href="#cb34-253" aria-hidden="true" tabindex="-1"></a>O R base e o Tidyverse não são abordagens excludentes. O R base oferece estabilidade, menor dependência de pacotes externos e maior controle sobre as operações. O Tidyverse oferece uma sintaxe mais padronizada e expressiva, especialmente útil em análises exploratórias e pipelines complexos.</span>
+<span id="cb34-254"><a href="#cb34-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-255"><a href="#cb34-255" aria-hidden="true" tabindex="-1"></a>O conhecimento de ambas as abordagens é importante para o cientista de dados, pois permite escolher a ferramenta mais adequada para cada situação.</span>
+<span id="cb34-256"><a href="#cb34-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-257"><a href="#cb34-257" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
+<span id="cb34-258"><a href="#cb34-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-259"><a href="#cb34-259" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
+<span id="cb34-260"><a href="#cb34-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-261"><a href="#cb34-261" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
+<span id="cb34-262"><a href="#cb34-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-263"><a href="#cb34-263" aria-hidden="true" tabindex="-1"></a></span>
 </code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

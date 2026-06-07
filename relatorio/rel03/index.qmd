@@ -28,96 +28,165 @@ execute:
 
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
+O pacote `leem` (*Learn Statistics with R*) é um pacote desenvolvido pelo Prof. Ben Dêivide (DEFIM/CAP/UFSJ) com o objetivo de facilitar o ensino e a aplicação da estatística descritiva e inferencial no ambiente R. O pacote disponibiliza funções para tabulação de dados, construção de gráficos, cálculo de medidas de posição e dispersão, cálculo de probabilidades e realização de testes de hipóteses, com uma interface acessível para iniciantes [@leem2022].
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
-
-
+---
 
 ## 🎯 Objetivos
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+Apresentar as principais funcionalidades do pacote `leem` para análise estatística descritiva no R.
 
 ### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+- Instalar e carregar o pacote `leem`
+- Aplicar a função `tabfreq()` para tabulação de dados
+- Construir histogramas, ogivas e gráficos de pizza
+- Calcular medidas de posição e dispersão
+- Utilizar as funções de probabilidade e teste de hipóteses
 
 ---
 
-## 📚  Fundamentação Teórica
+## 📚 Fundamentação Teórica
 
-Apresente os conceitos principais:
+O pacote `leem` centraliza em um único ambiente as principais ferramentas de estatística descritiva utilizadas em cursos introdutórios. Suas funções seguem uma sintaxe encadeada com o operador pipe (`|>`), tornando o código mais legível e organizado [@Rbasico2022].
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+As principais funções do pacote são descritas a seguir.
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+**`library(leem)`** — carrega o pacote no ambiente R. O pacote deve ser instalado previamente com `install.packages("leem")`.
+
+**`leem()`** — abre a interface gráfica interativa do pacote, ainda em desenvolvimento.
+
+**`new_leem()`** — converte um vetor de dados em um objeto da classe `leem`, especificando o tipo de variável:
+
+- `variable = 1`: variável qualitativa
+- `variable = 2`: variável quantitativa contínua
+
+**`tabfreq()`** — gera a tabela de distribuição de frequências. O argumento `k` define o número de classes. A tabela inclui frequências absolutas, relativas, acumuladas e percentuais.
+
+**`hist()`** — constrói o histograma a partir de um objeto tabulado. Os principais argumentos são:
+
+- `freq`: tipo de frequência (`"a"` absoluta, `"r"` relativa, `"p"` percentual)
+- `bg`: adiciona ou remove o fundo do gráfico
+- `barcol`: vetor de cores para as barras
+- `xlab`: rótulo do eixo x
+
+**`ogive()`** — constrói a ogiva (curva de frequência acumulada). Os principais argumentos são:
+
+- `bars`: exibe barras de frequência acumulada
+- `both`: exibe as duas ogivas (crescente e decrescente)
+- `barcol`: cores das barras
+- `lpcol`: cor da linha
+- `pch`: tipo de ponto
+
+**`insert()`** — insere elementos em um gráfico já construído, como a mediana ou a média. Pode ser encadeado após `ogive()`.
+
+**`piechart()`** — constrói o gráfico de pizza (setores) a partir da tabela de frequências.
+
+**`mpos()`** — calcula as medidas de posição (média, mediana e moda). O argumento `grouped = FALSE` retorna os valores sem agrupamento.
+
+**`variance()`** — calcula a variância dos dados tabulados.
+
+**`sdev()`** — calcula o desvio padrão dos dados tabulados.
+
+**`cv()`** — calcula o coeficiente de variação, expresso em percentual, que indica a variabilidade relativa dos dados em relação à média.
+
+**`P()`** — calcula probabilidades para distribuições de probabilidade. Aceita distribuições normal, binomial, entre outras. O argumento `gui = "tcltk"` abre uma interface gráfica interativa.
+
+**`th()`** — abre a interface interativa para realização de testes de hipóteses.
 
 ---
 
 ## ⚙️ Metodologia
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
-
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
+Os dados utilizados foram gerados artificialmente por meio da função `rnorm()`, que simula 1000 observações de uma distribuição normal com média 100 e desvio padrão 2. A semente `set.seed(10)` foi definida para garantir a reprodutibilidade dos resultados. Os dados foram tabulados em 7 classes e analisados com as funções do pacote `leem`.
 
 ---
 
 ## 🔍 Resultados e Discussão
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
+### 📊 Análise de Dados
 
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
-
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
-
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
-
-Procure não apenas descrever, mas **interpretar os dados**.
-
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-### 📊  Análise de Dados
+#### Geração e tabulação dos dados
 
 ```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
+library(leem)
+
+set.seed(10)
+dados <- rnorm(1000, mean = 100, sd = 2)
+
+tab <- dados |>
+  new_leem(variable = 2) |>
+  tabfreq(k = 7)
+
+tab
 ```
+
+#### Histograma
+
+```{r}
+tab |>
+  hist(
+    freq = "p",
+    bg = FALSE,
+    barcol = heat.colors(7),
+    xlab = "Variável X"
+  )
+```
+
+O histograma com frequência percentual mostra a distribuição dos dados em 7 classes. A distribuição apresenta formato aproximadamente simétrico, compatível com a distribuição normal utilizada na geração dos dados.
+
+#### Ogiva com inserção da mediana
+
+```{r}
+tab |>
+  ogive(
+    bars = TRUE,
+    both = TRUE,
+    barcol = c("blue", "yellow"),
+    lpcol = "red",
+    pch = 8
+  ) |>
+  insert(
+    type = "median",
+    lcol = "green",
+    ptext = 0.15
+  )
+```
+
+A ogiva exibe as curvas de frequência acumulada crescente e decrescente. A linha verde indica a posição da mediana, que corresponde ao ponto de interseção das duas curvas.
+
+#### Gráfico de pizza
+
+```{r}
+tab |>
+  piechart()
+```
+
+#### Medidas de posição e dispersão
+
+```{r}
+# Medidas de posição
+tab |> mpos(grouped = FALSE)
+
+# Variância
+tab |> variance()
+
+# Desvio padrão
+tab |> sdev()
+
+# Coeficiente de variação
+tab |> cv()
+```
+
+Os resultados mostram que a média e a mediana dos dados gerados são próximas de 100, confirmando a simetria da distribuição. O coeficiente de variação é baixo, indicando pequena variabilidade relativa em torno da média, o que é esperado dado o desvio padrão de 2 utilizado na simulação.
+
+---
 
 ## 🧠 Considerações finais
 
-Apresente uma síntese dos principais pontos observados no experimento.
-
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
-
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+O pacote `leem` centraliza as principais ferramentas de estatística descritiva em um único ambiente, com sintaxe simples e compatível com o operador pipe. As funções de tabulação, gráficos e medidas estatísticas cobrem as necessidades básicas de análises introdutórias. O uso da semente `set.seed()` garante que os resultados sejam reprodutíveis, o que é fundamental em análises científicas.
 
 ## Aprenda Quarto
 

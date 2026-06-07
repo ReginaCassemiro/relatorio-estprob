@@ -1,7 +1,7 @@
 ---
 # Só mude aqui!!!!
 author: "Regina Graziela Cassemiro de Almeida"
-title: "Relatório 5 - Análise Socioeconômica dos Estados Brasileiros com Visualização de Dados no R"
+title: "Relatório 5 - Mortalidade infantil -Análise Socioeconômica dos Estados Brasileiros com Visualização de Dados no R"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
 link-citations: true
@@ -24,102 +24,274 @@ execute:
   message: false
 ---
 
-
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
+A mortalidade infantil é um dos principais indicadores de desenvolvimento humano e qualidade de vida de uma população. Ela mede o número de óbitos de crianças menores de um ano de idade por cada mil nascidos vivos e reflete, de forma direta, as condições de saúde, saneamento, educação e acesso a serviços públicos de um território [@ibge2022].
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+No Brasil, apesar da redução significativa nas últimas décadas, as desigualdades regionais ainda são expressivas. Estados das regiões Norte e Nordeste historicamente apresentam taxas mais elevadas em comparação com os estados do Sul e Sudeste, evidenciando disparidades socioeconômicas estruturais que merecem atenção de gestores e formuladores de políticas públicas.
 
+Este relatório apresenta uma análise visual da taxa de mortalidade infantil (TMI) nos estados brasileiros, com base em dados públicos do IBGE, utilizando os sistemas gráficos do R base e do pacote `ggplot2`, além de gráficos interativos com `plotly` e mapa temático com `geobr` [@geobr2023].
 
+---
 
 ## 🎯 Objetivos
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+Analisar a distribuição da taxa de mortalidade infantil nos estados brasileiros por meio de visualizações gráficas produzidas no R.
 
 ### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+- Organizar dados públicos de mortalidade infantil no R
+- Produzir gráficos de barras, dispersão, histograma, boxplot, mapa temático e gráfico interativo
+- Comparar os sistemas gráficos Base R e `ggplot2`
+- Interpretar os padrões regionais observados
 
 ---
 
-## 📚  Fundamentação Teórica
+## 📚 Fundamentação Teórica
 
-Apresente os conceitos principais:
+A taxa de mortalidade infantil (TMI) é calculada como o número de óbitos de crianças com menos de um ano de vida para cada mil nascidos vivos. Valores abaixo de 10 são considerados baixos pela Organização Mundial da Saúde (OMS), enquanto valores acima de 20 indicam situação de risco alto [@ibge2022].
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+Os pacotes utilizados neste relatório são:
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+- **`geobr`:** malhas geográficas dos estados brasileiros
+- **`ggplot2`:** sistema de gráficos baseado na gramática de gráficos
+- **`plotly`:** gráficos interativos
+- **`dplyr`:** manipulação de dados
 
 ---
 
-## ⚙️ Metodologia
+## ⚙️ Obtenção e Tratamento dos Dados
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
+Os dados utilizados foram obtidos do IBGE — Síntese de Indicadores Sociais 2022 [@ibge2022], que disponibiliza a taxa de mortalidade infantil estimada por estado brasileiro. Os dados foram inseridos manualmente no R em formato de data frame, organizados por estado, região e classificação de risco.
 
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
+```{r message=FALSE, warning=FALSE}
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(geobr)
+
+# Dados de TMI por estado - IBGE 2022
+tmi <- data.frame(
+  estado = c("Espírito Santo", "Paraná", "Santa Catarina", "Rio Grande do Sul",
+             "São Paulo", "Minas Gerais", "Distrito Federal", "Rio de Janeiro",
+             "Pernambuco", "Rio Grande do Norte", "Ceará", "Mato Grosso do Sul",
+             "Paraíba", "Sergipe", "Goiás", "Tocantins", "Bahia",
+             "Pará", "Acre", "Alagoas", "Mato Grosso", "Amazonas",
+             "Piauí", "Roraima", "Maranhão", "Rondônia", "Amapá"),
+  sigla = c("ES","PR","SC","RS","SP","MG","DF","RJ","PE","RN","CE","MS",
+            "PB","SE","GO","TO","BA","PA","AC","AL","MT","AM","PI","RR",
+            "MA","RO","AP"),
+  tmi = c(5.40, 5.70, 5.99, 6.52, 6.65, 6.86, 7.68, 7.83, 8.96, 9.86,
+          9.91, 10.19, 10.87, 10.97, 11.08, 11.77, 12.33, 12.35, 12.36,
+          12.57, 13.06, 13.78, 14.43, 14.52, 14.78, 16.08, 20.37),
+  code_state = c(32,41,42,43,35,31,53,33,26,24,23,50,25,28,52,17,29,
+                 15,12,27,51,13,22,14,21,11,16),
+  regiao = c("Sudeste","Sul","Sul","Sul","Sudeste","Sudeste","Centro-Oeste",
+             "Sudeste","Nordeste","Nordeste","Nordeste","Centro-Oeste",
+             "Nordeste","Nordeste","Centro-Oeste","Norte","Nordeste",
+             "Norte","Norte","Nordeste","Centro-Oeste","Norte",
+             "Nordeste","Norte","Nordeste","Norte","Norte")
+)
+
+# Criando variável de classificação de risco
+tmi <- tmi |>
+  mutate(
+    risco = case_when(
+      tmi < 10  ~ "Baixo",
+      tmi < 15  ~ "Moderado",
+      TRUE      ~ "Alto"
+    )
+  ) |>
+  arrange(desc(tmi))
+
+# Visualizando os dados
+glimpse(tmi)
+```
+
+```{r}
+# Resumo estatístico
+summary(tmi$tmi)
+```
 
 ---
 
 ## 🔍 Resultados e Discussão
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
+### 📊 Construção dos Gráficos
 
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
+#### Gráfico de Barras — Base R
 
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
+```{r fig.width=10, fig.height=6}
+cores <- ifelse(tmi$tmi >= 15, "tomato",
+         ifelse(tmi$tmi >= 10, "orange", "steelblue"))
 
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
-
-Procure não apenas descrever, mas **interpretar os dados**.
-
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-### 📊  Análise de Dados
-
-```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
+barplot(
+  tmi$tmi,
+  names.arg = tmi$sigla,
+  col       = cores,
+  main      = "Taxa de Mortalidade Infantil por Estado (Base R)",
+  xlab      = "Estado",
+  ylab      = "TMI (por mil nascidos vivos)",
+  las       = 2,
+  cex.names = 0.8
+)
+abline(h = 10, col = "blue", lty = 2, lwd = 1.5)
+abline(h = 15, col = "red",  lty = 2, lwd = 1.5)
+legend("topleft",
+       legend = c("Baixo (<10)", "Moderado (10-15)", "Alto (>15)"),
+       fill   = c("steelblue", "orange", "tomato"),
+       bty    = "n")
 ```
 
-## 🧠 Considerações finais
+#### Gráfico de Barras — ggplot2
 
-Apresente uma síntese dos principais pontos observados no experimento.
+```{r fig.width=10, fig.height=6}
+ggplot(tmi, aes(x = reorder(sigla, -tmi), y = tmi, fill = risco)) +
+  geom_col() +
+  geom_hline(yintercept = 10, color = "blue", linetype = "dashed") +
+  geom_hline(yintercept = 15, color = "red",  linetype = "dashed") +
+  scale_fill_manual(values = c("Baixo" = "steelblue",
+                                "Moderado" = "orange",
+                                "Alto" = "tomato")) +
+  labs(
+    title    = "Taxa de Mortalidade Infantil por Estado (ggplot2)",
+    subtitle = "Fonte: IBGE, Síntese de Indicadores Sociais 2022",
+    x        = "Estado",
+    y        = "TMI (por mil nascidos vivos)",
+    fill     = "Risco"
+  ) +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
+#### Histograma
 
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+```{r fig.width=8, fig.height=5}
+ggplot(tmi, aes(x = tmi)) +
+  geom_histogram(bins = 8, fill = "steelblue", color = "white") +
+  geom_vline(xintercept = mean(tmi$tmi), color = "red",
+             linetype = "dashed", linewidth = 1) +
+  labs(
+    title    = "Distribuição da Taxa de Mortalidade Infantil",
+    subtitle = "Linha vermelha = média nacional",
+    x        = "TMI (por mil nascidos vivos)",
+    y        = "Frequência"
+  ) +
+  theme_classic()
+```
+
+#### Boxplot por Região
+
+```{r fig.width=8, fig.height=5}
+ggplot(tmi, aes(x = regiao, y = tmi, fill = regiao)) +
+  geom_boxplot() +
+  labs(
+    title = "Distribuição da TMI por Região",
+    x     = "Região",
+    y     = "TMI (por mil nascidos vivos)"
+  ) +
+  theme_classic() +
+  theme(legend.position = "none")
+```
+
+#### Gráfico de Dispersão
+
+```{r fig.width=9, fig.height=5}
+ggplot(tmi, aes(x = reorder(sigla, tmi), y = tmi, color = regiao)) +
+  geom_point(size = 4) +
+  geom_hline(yintercept = mean(tmi$tmi),
+             linetype = "dashed", color = "gray40") +
+  labs(
+    title  = "Dispersão da TMI por Estado",
+    x      = "Estado",
+    y      = "TMI (por mil nascidos vivos)",
+    color  = "Região"
+  ) +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+#### Gráfico Interativo — plotly
+
+```{r message=FALSE, warning=FALSE}
+plot_ly(
+  data      = tmi,
+  x         = ~reorder(sigla, -tmi),
+  y         = ~tmi,
+  type      = "bar",
+  color     = ~risco,
+  colors    = c("Baixo" = "steelblue",
+                "Moderado" = "orange",
+                "Alto" = "tomato"),
+  text      = ~paste("Estado:", estado,
+                     "<br>TMI:", round(tmi, 2),
+                     "<br>Região:", regiao),
+  hoverinfo = "text"
+) |>
+  layout(
+    title  = "Taxa de Mortalidade Infantil por Estado",
+    xaxis  = list(title = "Estado"),
+    yaxis  = list(title = "TMI (por mil nascidos vivos)")
+  )
+```
+
+#### Mapa Temático
+
+```{r message=FALSE, warning=FALSE, fig.width=9, fig.height=7}
+estados_geo <- read_state(year = 2020, showProgress = FALSE)
+
+mapa <- estados_geo |>
+  left_join(tmi, by = "code_state")
+
+ggplot(mapa) +
+  geom_sf(aes(fill = tmi), color = "white") +
+  scale_fill_viridis_c(option = "plasma", name = "TMI") +
+  labs(
+    title    = "Mapa da Mortalidade Infantil por Estado",
+    subtitle = "Fonte: IBGE, Síntese de Indicadores Sociais 2022"
+  ) +
+  theme_minimal()
+```
+
+### Comparação entre Base R e ggplot2
+
+| Critério | Base R | ggplot2 |
+|----------|--------|---------|
+| Facilidade | Simples para gráficos básicos | Curva inicial maior, mas mais organizado |
+| Personalização | Múltiplos comandos separados | Camadas adicionadas com `+` |
+| Estética | Limitada | Alta qualidade visual por padrão |
+| Flexibilidade | Adequada para análises rápidas | Ideal para relatórios e publicações |
+| Integração interativa | Limitada | Conversão simples com `ggplotly()` |
+
+O Base R é mais direto para gráficos exploratórios rápidos. O `ggplot2` oferece maior controle estético e facilita a produção de gráficos prontos para publicação, especialmente quando há múltiplas variáveis de agrupamento.
+
+### Interpretação dos Resultados
+
+Os resultados mostram que:
+
+- Os estados da região **Norte e Nordeste** concentram as maiores taxas de mortalidade infantil, com destaque para Amapá (20,37), Rondônia (16,08) e Maranhão (14,78)
+- Os estados da região **Sul e Sudeste** apresentam as menores taxas, com Espírito Santo (5,40) e Paraná (5,70) como os melhores índices
+- A **média nacional** está acima de 10, indicando que ainda há espaço para melhoria nas políticas públicas de saúde materno-infantil
+- O **boxplot por região** evidencia maior variabilidade nas regiões Norte e Nordeste, sugerindo desigualdades intrarregionais expressivas
+- O **mapa temático** reforça o gradiente Norte-Sul visualmente, com concentração de altas taxas nas regiões menos desenvolvidas
+
+As diferenças regionais refletem desigualdades no acesso a serviços de saúde, saneamento básico, escolaridade materna e renda per capita.
+
+---
+
+## 🧠 Conclusão
+
+A análise visual da mortalidade infantil evidenciou padrões regionais expressivos que refletem as desigualdades socioeconômicas do Brasil. Os gráficos produzidos permitiram uma leitura abrangente dos dados, cada um contribuindo com uma perspectiva diferente.
+
+O mapa temático foi o mais informativo para comunicar diferenças regionais de forma imediata. O gráfico interativo facilitou a exploração detalhada por estado. O boxplot por região foi essencial para identificar variabilidade interna de cada grupo.
+
+O R se mostrou uma ferramenta completa para análise de dados públicos, desde a organização dos dados até a produção de visualizações de alta qualidade com `ggplot2`, `plotly` e `geobr`.
 
 ## Aprenda Quarto
 
 Acesse [Quarto](https://quarto.org/).
 
 ## 📖 Referências
+

@@ -92,35 +92,6 @@ div.csl-indent {
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -142,8 +113,7 @@ window.Quarto = {
   <li><a href="#metodologia" id="toc-metodologia" class="nav-link" data-scroll-target="#metodologia"><span class="header-section-number">4</span> ⚙️ Metodologia</a></li>
   <li><a href="#resultados-e-discussão" id="toc-resultados-e-discussão" class="nav-link" data-scroll-target="#resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</a>
   <ul class="collapse">
-  <li><a href="#exemplo-de-como-citar-uma-referência-bibliográfica" id="toc-exemplo-de-como-citar-uma-referência-bibliográfica" class="nav-link" data-scroll-target="#exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.1</span> 💬 Exemplo de como citar uma referência bibliográfica</a></li>
-  <li><a href="#análise-de-dados" id="toc-análise-de-dados" class="nav-link" data-scroll-target="#análise-de-dados"><span class="header-section-number">5.2</span> 📊 Análise de Dados</a></li>
+  <li><a href="#análise-de-dados" id="toc-análise-de-dados" class="nav-link" data-scroll-target="#análise-de-dados"><span class="header-section-number">5.1</span> 📊 Análise de Dados</a></li>
   </ul></li>
   <li><a href="#considerações-finais" id="toc-considerações-finais" class="nav-link" data-scroll-target="#considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações finais</a></li>
   <li><a href="#aprenda-quarto" id="toc-aprenda-quarto" class="nav-link" data-scroll-target="#aprenda-quarto"><span class="header-section-number">7</span> Aprenda Quarto</a></li>
@@ -181,7 +151,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">02/06/2026, 22:14</p>
+      <p class="date">07/06/2026, 19:35</p>
     </div>
   </div>
   
@@ -195,118 +165,236 @@ window.Quarto = {
 
 <section id="introdução" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">1</span> 📌 Introdução</h2>
-<p>Descreva o contexto da prática e sua importância.</p>
-<blockquote class="blockquote">
-<p>Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.</p>
-</blockquote>
+<p>O pacote <code>leem</code> (<em>Learn Statistics with R</em>) é um pacote desenvolvido pelo Prof.&nbsp;Ben Dêivide (DEFIM/CAP/UFSJ) com o objetivo de facilitar o ensino e a aplicação da estatística descritiva e inferencial no ambiente R. O pacote disponibiliza funções para tabulação de dados, construção de gráficos, cálculo de medidas de posição e dispersão, cálculo de probabilidades e realização de testes de hipóteses, com uma interface acessível para iniciantes <span class="citation" data-cites="leem2022">(<a href="#ref-leem2022" role="doc-biblioref">Batista, 2022</a>)</span>.</p>
+<hr>
 </section>
 <section id="objetivos" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="objetivos"><span class="header-section-number">2</span> 🎯 Objetivos</h2>
 <section id="objetivo-geral" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="objetivo-geral"><span class="header-section-number">2.1</span> Objetivo geral</h3>
-<p>Descrever o objetivo principal da prática.</p>
+<p>Apresentar as principais funcionalidades do pacote <code>leem</code> para análise estatística descritiva no R.</p>
 </section>
 <section id="objetivos-específicos" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="objetivos-específicos"><span class="header-section-number">2.2</span> Objetivos específicos</h3>
 <ul>
-<li>Coletar dados experimentais<br>
-</li>
-<li>Aplicar estatística descritiva<br>
-</li>
-<li>Construir gráficos<br>
-</li>
-<li>Interpretar resultados</li>
+<li>Instalar e carregar o pacote <code>leem</code></li>
+<li>Aplicar a função <code>tabfreq()</code> para tabulação de dados</li>
+<li>Construir histogramas, ogivas e gráficos de pizza</li>
+<li>Calcular medidas de posição e dispersão</li>
+<li>Utilizar as funções de probabilidade e teste de hipóteses</li>
 </ul>
 <hr>
 </section>
 </section>
 <section id="fundamentação-teórica" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="fundamentação-teórica"><span class="header-section-number">3</span> 📚 Fundamentação Teórica</h2>
-<p>Apresente os conceitos principais:</p>
+<p>O pacote <code>leem</code> centraliza em um único ambiente as principais ferramentas de estatística descritiva utilizadas em cursos introdutórios. Suas funções seguem uma sintaxe encadeada com o operador pipe (<code>|&gt;</code>), tornando o código mais legível e organizado <span class="citation" data-cites="Rbasico2022">(<a href="#ref-Rbasico2022" role="doc-biblioref">Batista e Oliveira, 2022</a>)</span>.</p>
+<p>As principais funções do pacote são descritas a seguir.</p>
+<p><strong><code>library(leem)</code></strong> — carrega o pacote no ambiente R. O pacote deve ser instalado previamente com <code>install.packages("leem")</code>.</p>
+<p><strong><code>leem()</code></strong> — abre a interface gráfica interativa do pacote, ainda em desenvolvimento.</p>
+<p><strong><code>new_leem()</code></strong> — converte um vetor de dados em um objeto da classe <code>leem</code>, especificando o tipo de variável:</p>
 <ul>
-<li>Média</li>
-<li>Variância</li>
-<li>Desvio padrão</li>
-<li>Amostragem</li>
+<li><code>variable = 1</code>: variável qualitativa</li>
+<li><code>variable = 2</code>: variável quantitativa contínua</li>
 </ul>
-<p><span class="math display">\[
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-\]</span></p>
+<p><strong><code>tabfreq()</code></strong> — gera a tabela de distribuição de frequências. O argumento <code>k</code> define o número de classes. A tabela inclui frequências absolutas, relativas, acumuladas e percentuais.</p>
+<p><strong><code>hist()</code></strong> — constrói o histograma a partir de um objeto tabulado. Os principais argumentos são:</p>
+<ul>
+<li><code>freq</code>: tipo de frequência (<code>"a"</code> absoluta, <code>"r"</code> relativa, <code>"p"</code> percentual)</li>
+<li><code>bg</code>: adiciona ou remove o fundo do gráfico</li>
+<li><code>barcol</code>: vetor de cores para as barras</li>
+<li><code>xlab</code>: rótulo do eixo x</li>
+</ul>
+<p><strong><code>ogive()</code></strong> — constrói a ogiva (curva de frequência acumulada). Os principais argumentos são:</p>
+<ul>
+<li><code>bars</code>: exibe barras de frequência acumulada</li>
+<li><code>both</code>: exibe as duas ogivas (crescente e decrescente)</li>
+<li><code>barcol</code>: cores das barras</li>
+<li><code>lpcol</code>: cor da linha</li>
+<li><code>pch</code>: tipo de ponto</li>
+</ul>
+<p><strong><code>insert()</code></strong> — insere elementos em um gráfico já construído, como a mediana ou a média. Pode ser encadeado após <code>ogive()</code>.</p>
+<p><strong><code>piechart()</code></strong> — constrói o gráfico de pizza (setores) a partir da tabela de frequências.</p>
+<p><strong><code>mpos()</code></strong> — calcula as medidas de posição (média, mediana e moda). O argumento <code>grouped = FALSE</code> retorna os valores sem agrupamento.</p>
+<p><strong><code>variance()</code></strong> — calcula a variância dos dados tabulados.</p>
+<p><strong><code>sdev()</code></strong> — calcula o desvio padrão dos dados tabulados.</p>
+<p><strong><code>cv()</code></strong> — calcula o coeficiente de variação, expresso em percentual, que indica a variabilidade relativa dos dados em relação à média.</p>
+<p><strong><code>P()</code></strong> — calcula probabilidades para distribuições de probabilidade. Aceita distribuições normal, binomial, entre outras. O argumento <code>gui = "tcltk"</code> abre uma interface gráfica interativa.</p>
+<p><strong><code>th()</code></strong> — abre a interface interativa para realização de testes de hipóteses.</p>
 <hr>
 </section>
 <section id="metodologia" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="metodologia"><span class="header-section-number">4</span> ⚙️ Metodologia</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Descreva como o experimento foi realizado.</p>
-</div>
-</div>
-<ul>
-<li>Materiais utilizados<br>
-</li>
-<li>Procedimento<br>
-</li>
-<li>Número de repetições</li>
-</ul>
+<p>Os dados utilizados foram gerados artificialmente por meio da função <code>rnorm()</code>, que simula 1000 observações de uma distribuição normal com média 100 e desvio padrão 2. A semente <code>set.seed(10)</code> foi definida para garantir a reprodutibilidade dos resultados. Os dados foram tabulados em 7 classes e analisados com as funções do pacote <code>leem</code>.</p>
 <hr>
 </section>
 <section id="resultados-e-discussão" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</h2>
-<p>Apresente e interprete os resultados obtidos a partir dos dados coletados.</p>
-<ul>
-<li>Descreva os principais resultados numéricos (média, variabilidade, etc.).</li>
-<li>Comente o comportamento dos dados observados nos gráficos.</li>
-<li>Indique se há presença de valores discrepantes (outliers).</li>
-<li>Avalie se os dados apresentam simetria ou tendência.</li>
-</ul>
-<p>Em seguida, discuta os resultados à luz dos conceitos teóricos:</p>
-<ul>
-<li>Os resultados estão de acordo com o esperado?</li>
-<li>Há grande variabilidade? O que isso significa no contexto do experimento?</li>
-<li>Quais fatores podem ter influenciado os resultados?</li>
-<li>Existem possíveis fontes de erro experimental?</li>
-</ul>
-<p>Procure não apenas descrever, mas <strong>interpretar os dados</strong>.</p>
-<section id="exemplo-de-como-citar-uma-referência-bibliográfica" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.1</span> 💬 Exemplo de como citar uma referência bibliográfica</h3>
-<p>Depois de inserido as informaçõe no arquivo <strong>referencias.bib</strong>, use:</p>
-<ul>
-<li>Segundo <span class="citation" data-cites="Rbasico2022">Batista e Oliveira (<a href="#ref-Rbasico2022" role="doc-biblioref">2022</a>)</span></li>
-<li>Tudo é um objeto em R <span class="citation" data-cites="Rbasico2022">(<a href="#ref-Rbasico2022" role="doc-biblioref">Batista e Oliveira, 2022</a>)</span></li>
-</ul>
-</section>
-<section id="análise-de-dados" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="análise-de-dados"><span class="header-section-number">5.2</span> 📊 Análise de Dados</h3>
+<section id="análise-de-dados" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="análise-de-dados"><span class="header-section-number">5.1</span> 📊 Análise de Dados</h3>
+<section id="geração-e-tabulação-dos-dados" class="level4" data-number="5.1.1">
+<h4 data-number="5.1.1" class="anchored" data-anchor-id="geração-e-tabulação-dos-dados"><span class="header-section-number">5.1.1</span> Geração e tabulação dos dados</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>distancia</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leem)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> dados <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">new_leem</span>(<span class="at">variable =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabfreq</span>(<span class="at">k =</span> <span class="dv">7</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>tab</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.2  9.8 10.5 10.1  9.9 10.3</code></pre>
+<pre><code>
+Tabela de frequência 
+Tipo de variável: continuous
+
+              Classes  Fi     PM   Fr Fac1 Fac2 Fp Fac1p Fac2p
+1   92.89 |---  95.07   4  93.98 0.00    4 1000  0   0.4 100.0
+2   95.07 |---  97.25  85  96.16 0.09   89  996  9   8.9  99.6
+3   97.25 |---  99.43 307  98.34 0.31  396  911 31  39.6  91.1
+4  99.43 |---  101.61 381 100.52 0.38  777  604 38  77.7  60.4
+5 101.61 |---  103.79 194 102.70 0.19  971  223 19  97.1  22.3
+6 103.79 |---  105.97  27 104.88 0.03  998   29  3  99.8   2.9
+7 105.97 |---  108.15   2 107.06 0.00 1000    2  0 100.0   0.2
+
+============================================== 
+Classes: Agrupamento de classes 
+Fi: Frequência absoluta 
+PM: Ponto médio 
+Fr: Frequência relativa 
+Fac1: Frequência acumulada (abaixo de) 
+Fac2: Frequência acumulada (acima de) 
+Fp: Frequência percentual 
+Fac1p: Frequência acumulada percentual (abaixo de) 
+Fac2p: Frequência acumulada percentual (acima de) </code></pre>
 </div>
 </div>
+</section>
+<section id="histograma" class="level4" data-number="5.1.2">
+<h4 data-number="5.1.2" class="anchored" data-anchor-id="histograma"><span class="header-section-number">5.1.2</span> Histograma</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">freq =</span> <span class="st">"p"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">bg =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">barcol =</span> <span class="fu">heat.colors</span>(<span class="dv">7</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">"Variável X"</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>O histograma com frequência percentual mostra a distribuição dos dados em 7 classes. A distribuição apresenta formato aproximadamente simétrico, compatível com a distribuição normal utilizada na geração dos dados.</p>
+</section>
+<section id="ogiva-com-inserção-da-mediana" class="level4" data-number="5.1.3">
+<h4 data-number="5.1.3" class="anchored" data-anchor-id="ogiva-com-inserção-da-mediana"><span class="header-section-number">5.1.3</span> Ogiva com inserção da mediana</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ogive</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">bars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">both =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">barcol =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"yellow"</span>),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">lpcol =</span> <span class="st">"red"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">pch =</span> <span class="dv">8</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">insert</span>(</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"median"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">lcol =</span> <span class="st">"green"</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">ptext =</span> <span class="fl">0.15</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A ogiva exibe as curvas de frequência acumulada crescente e decrescente. A linha verde indica a posição da mediana, que corresponde ao ponto de interseção das duas curvas.</p>
+</section>
+<section id="gráfico-de-pizza" class="level4" data-number="5.1.4">
+<h4 data-number="5.1.4" class="anchored" data-anchor-id="gráfico-de-pizza"><span class="header-section-number">5.1.4</span> Gráfico de pizza</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">piechart</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="medidas-de-posição-e-dispersão" class="level4" data-number="5.1.5">
+<h4 data-number="5.1.5" class="anchored" data-anchor-id="medidas-de-posição-e-dispersão"><span class="header-section-number">5.1.5</span> Medidas de posição e dispersão</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Medidas de posição</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span> <span class="fu">mpos</span>(<span class="at">grouped =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>$average
+[1] 100.02
+
+$median
+[1] 99.99
+
+$mode
+[1] "The data set has no mode!"</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variância</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span> <span class="fu">variance</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.50872</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Desvio padrão</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span> <span class="fu">sdev</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.12</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coeficiente de variação</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span> <span class="fu">cv</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.12</code></pre>
+</div>
+</div>
+<p>Os resultados mostram que a média e a mediana dos dados gerados são próximas de 100, confirmando a simetria da distribuição. O coeficiente de variação é baixo, indicando pequena variabilidade relativa em torno da média, o que é esperado dado o desvio padrão de 2 utilizado na simulação.</p>
+<hr>
+</section>
 </section>
 </section>
 <section id="considerações-finais" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações finais</h2>
-<p>Apresente uma síntese dos principais pontos observados no experimento.</p>
-<ul>
-<li>Retome o objetivo da prática e indique se ele foi alcançado.</li>
-<li>Destaque os principais aprendizados obtidos.</li>
-<li>Comente brevemente sobre a qualidade dos dados coletados.</li>
-<li>Sugira possíveis melhorias no procedimento experimental.</li>
-</ul>
-<p>Evite repetir apenas os resultados; foque nas <strong>conclusões e reflexões</strong> sobre a prática realizada.</p>
+<p>O pacote <code>leem</code> centraliza as principais ferramentas de estatística descritiva em um único ambiente, com sintaxe simples e compatível com o operador pipe. As funções de tabulação, gráficos e medidas estatísticas cobrem as necessidades básicas de análises introdutórias. O uso da semente <code>set.seed()</code> garante que os resultados sejam reprodutíveis, o que é fundamental em análises científicas.</p>
 </section>
 <section id="aprenda-quarto" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="aprenda-quarto"><span class="header-section-number">7</span> Aprenda Quarto</h2>
@@ -320,8 +408,11 @@ Nota
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">8 📖 Referências</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-leem2022" class="csl-entry" role="listitem">
+BATISTA, B. D. DE O. <strong><a href="https://bendeivide.github.io/leem/">leem: Learn Statistics with R</a></strong>. [s.l: s.n.].
+</div>
 <div id="ref-Rbasico2022" class="csl-entry" role="listitem">
-BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro Branco, MG: [s.n.], 2022. p. 321
+BATISTA, B. D. DE O.; OLIVEIRA, D. A. B. J. <strong><a href="https://bendeivide.github.io/book-eambr01/">R básico</a></strong>. Ouro Branco, MG: [s.n.]. v. 1
 </div>
 </div></section></div></main>
 <!-- /main column -->
@@ -776,132 +867,201 @@ BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Código fonte</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Regina Graziela Cassemiro de Almeida"</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório 3 - Pacote Leem"</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> true</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> associacao-brasileira-de-normas-tecnicas-ipea.csl</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "&lt;a href='https://bendeivide.github.io/courses/epaec/' target='_blank'&gt;Estatística e Probabilidade&lt;/a&gt; &lt;/br&gt; &lt;a href='https://bendeivide.github.io' target='_blank'&gt;Prof. Ben Dêivide (DEFIM/CAP/UFSJ)&lt;/a&gt;"</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="an">include-before-body:</span><span class="co"> header.html</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> now</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="an">date-format:</span><span class="co"> "DD/MM/YYYY, HH:mm"</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> pt-BR</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: bootstrap</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">    #css: styles.css</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>Descreva o contexto da prática e sua importância.</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>Descrever o objetivo principal da prática.</span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Coletar dados experimentais  </span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Aplicar estatística descritiva  </span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Construir gráficos  </span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interpretar resultados  </span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚  Fundamentação Teórica</span></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>Apresente os conceitos principais:</span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Média</span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Variância</span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Desvio padrão</span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Amostragem</span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i</span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>Descreva como o experimento foi realizado.</span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Materiais utilizados  </span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Procedimento  </span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Número de repetições  </span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>Apresente e interprete os resultados obtidos a partir dos dados coletados.</span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Descreva os principais resultados numéricos (média, variabilidade, etc.).</span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente o comportamento dos dados observados nos gráficos.</span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Indique se há presença de valores discrepantes (outliers).</span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avalie se os dados apresentam simetria ou tendência.</span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>Em seguida, discuta os resultados à luz dos conceitos teóricos:</span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Os resultados estão de acordo com o esperado?</span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Há grande variabilidade? O que isso significa no contexto do experimento?</span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quais fatores podem ter influenciado os resultados?</span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Existem possíveis fontes de erro experimental?</span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>Procure não apenas descrever, mas **interpretar os dados**.</span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
-<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
-<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
-<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
-<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
-<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>distancia</span>
-<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
-<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
-<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retome o objetivo da prática e indique se ele foi alcançado.</span>
-<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Destaque os principais aprendizados obtidos.</span>
-<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente brevemente sobre a qualidade dos dados coletados.</span>
-<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sugira possíveis melhorias no procedimento experimental.</span>
-<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.</span>
-<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
-<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
-<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Regina Graziela Cassemiro de Almeida"</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório 3 - Pacote Leem"</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> true</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> associacao-brasileira-de-normas-tecnicas-ipea.csl</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "&lt;a href='https://bendeivide.github.io/courses/epaec/' target='_blank'&gt;Estatística e Probabilidade&lt;/a&gt; &lt;/br&gt; &lt;a href='https://bendeivide.github.io' target='_blank'&gt;Prof. Ben Dêivide (DEFIM/CAP/UFSJ)&lt;/a&gt;"</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="an">include-before-body:</span><span class="co"> header.html</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> now</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="an">date-format:</span><span class="co"> "DD/MM/YYYY, HH:mm"</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> pt-BR</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: bootstrap</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co">    #css: styles.css</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>O pacote <span class="in">`leem`</span> (*Learn Statistics with R*) é um pacote desenvolvido pelo Prof. Ben Dêivide (DEFIM/CAP/UFSJ) com o objetivo de facilitar o ensino e a aplicação da estatística descritiva e inferencial no ambiente R. O pacote disponibiliza funções para tabulação de dados, construção de gráficos, cálculo de medidas de posição e dispersão, cálculo de probabilidades e realização de testes de hipóteses, com uma interface acessível para iniciantes <span class="co">[</span><span class="ot">@leem2022</span><span class="co">]</span>.</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>Apresentar as principais funcionalidades do pacote <span class="in">`leem`</span> para análise estatística descritiva no R.</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Instalar e carregar o pacote <span class="in">`leem`</span></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Aplicar a função <span class="in">`tabfreq()`</span> para tabulação de dados</span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Construir histogramas, ogivas e gráficos de pizza</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calcular medidas de posição e dispersão</span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Utilizar as funções de probabilidade e teste de hipóteses</span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚 Fundamentação Teórica</span></span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a>O pacote <span class="in">`leem`</span> centraliza em um único ambiente as principais ferramentas de estatística descritiva utilizadas em cursos introdutórios. Suas funções seguem uma sintaxe encadeada com o operador pipe (<span class="in">`|&gt;`</span>), tornando o código mais legível e organizado <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span>.</span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a>As principais funções do pacote são descritas a seguir.</span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a>**`library(leem)`** — carrega o pacote no ambiente R. O pacote deve ser instalado previamente com <span class="in">`install.packages("leem")`</span>.</span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a>**`leem()`** — abre a interface gráfica interativa do pacote, ainda em desenvolvimento.</span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a>**`new_leem()`** — converte um vetor de dados em um objeto da classe <span class="in">`leem`</span>, especificando o tipo de variável:</span>
+<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`variable = 1`</span>: variável qualitativa</span>
+<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`variable = 2`</span>: variável quantitativa contínua</span>
+<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a>**`tabfreq()`** — gera a tabela de distribuição de frequências. O argumento <span class="in">`k`</span> define o número de classes. A tabela inclui frequências absolutas, relativas, acumuladas e percentuais.</span>
+<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a>**`hist()`** — constrói o histograma a partir de um objeto tabulado. Os principais argumentos são:</span>
+<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`freq`</span>: tipo de frequência (<span class="in">`"a"`</span> absoluta, <span class="in">`"r"`</span> relativa, <span class="in">`"p"`</span> percentual)</span>
+<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`bg`</span>: adiciona ou remove o fundo do gráfico</span>
+<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`barcol`</span>: vetor de cores para as barras</span>
+<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`xlab`</span>: rótulo do eixo x</span>
+<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a>**`ogive()`** — constrói a ogiva (curva de frequência acumulada). Os principais argumentos são:</span>
+<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`bars`</span>: exibe barras de frequência acumulada</span>
+<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`both`</span>: exibe as duas ogivas (crescente e decrescente)</span>
+<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`barcol`</span>: cores das barras</span>
+<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`lpcol`</span>: cor da linha</span>
+<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`pch`</span>: tipo de ponto</span>
+<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a>**`insert()`** — insere elementos em um gráfico já construído, como a mediana ou a média. Pode ser encadeado após <span class="in">`ogive()`</span>.</span>
+<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a>**`piechart()`** — constrói o gráfico de pizza (setores) a partir da tabela de frequências.</span>
+<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a>**`mpos()`** — calcula as medidas de posição (média, mediana e moda). O argumento <span class="in">`grouped = FALSE`</span> retorna os valores sem agrupamento.</span>
+<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a>**`variance()`** — calcula a variância dos dados tabulados.</span>
+<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a>**`sdev()`** — calcula o desvio padrão dos dados tabulados.</span>
+<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a>**`cv()`** — calcula o coeficiente de variação, expresso em percentual, que indica a variabilidade relativa dos dados em relação à média.</span>
+<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a>**`P()`** — calcula probabilidades para distribuições de probabilidade. Aceita distribuições normal, binomial, entre outras. O argumento <span class="in">`gui = "tcltk"`</span> abre uma interface gráfica interativa.</span>
+<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a>**`th()`** — abre a interface interativa para realização de testes de hipóteses.</span>
+<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-101"><a href="#cb14-101" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
+<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a>Os dados utilizados foram gerados artificialmente por meio da função <span class="in">`rnorm()`</span>, que simula 1000 observações de uma distribuição normal com média 100 e desvio padrão 2. A semente <span class="in">`set.seed(10)`</span> foi definida para garantir a reprodutibilidade dos resultados. Os dados foram tabulados em 7 classes e analisados com as funções do pacote <span class="in">`leem`</span>.</span>
+<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-106"><a href="#cb14-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-107"><a href="#cb14-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
+<span id="cb14-108"><a href="#cb14-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-109"><a href="#cb14-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊 Análise de Dados</span></span>
+<span id="cb14-110"><a href="#cb14-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-111"><a href="#cb14-111" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Geração e tabulação dos dados</span></span>
+<span id="cb14-112"><a href="#cb14-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-115"><a href="#cb14-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb14-116"><a href="#cb14-116" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leem)</span>
+<span id="cb14-117"><a href="#cb14-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-118"><a href="#cb14-118" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb14-119"><a href="#cb14-119" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb14-120"><a href="#cb14-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-121"><a href="#cb14-121" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> dados <span class="sc">|&gt;</span></span>
+<span id="cb14-122"><a href="#cb14-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">new_leem</span>(<span class="at">variable =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-123"><a href="#cb14-123" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabfreq</span>(<span class="at">k =</span> <span class="dv">7</span>)</span>
+<span id="cb14-124"><a href="#cb14-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-125"><a href="#cb14-125" aria-hidden="true" tabindex="-1"></a>tab</span>
+<span id="cb14-126"><a href="#cb14-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-127"><a href="#cb14-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-128"><a href="#cb14-128" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Histograma</span></span>
+<span id="cb14-129"><a href="#cb14-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-132"><a href="#cb14-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb14-133"><a href="#cb14-133" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span></span>
+<span id="cb14-134"><a href="#cb14-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(</span>
+<span id="cb14-135"><a href="#cb14-135" aria-hidden="true" tabindex="-1"></a>    <span class="at">freq =</span> <span class="st">"p"</span>,</span>
+<span id="cb14-136"><a href="#cb14-136" aria-hidden="true" tabindex="-1"></a>    <span class="at">bg =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb14-137"><a href="#cb14-137" aria-hidden="true" tabindex="-1"></a>    <span class="at">barcol =</span> <span class="fu">heat.colors</span>(<span class="dv">7</span>),</span>
+<span id="cb14-138"><a href="#cb14-138" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">"Variável X"</span></span>
+<span id="cb14-139"><a href="#cb14-139" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-140"><a href="#cb14-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-141"><a href="#cb14-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-142"><a href="#cb14-142" aria-hidden="true" tabindex="-1"></a>O histograma com frequência percentual mostra a distribuição dos dados em 7 classes. A distribuição apresenta formato aproximadamente simétrico, compatível com a distribuição normal utilizada na geração dos dados.</span>
+<span id="cb14-143"><a href="#cb14-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-144"><a href="#cb14-144" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Ogiva com inserção da mediana</span></span>
+<span id="cb14-145"><a href="#cb14-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-148"><a href="#cb14-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb14-149"><a href="#cb14-149" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span></span>
+<span id="cb14-150"><a href="#cb14-150" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ogive</span>(</span>
+<span id="cb14-151"><a href="#cb14-151" aria-hidden="true" tabindex="-1"></a>    <span class="at">bars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb14-152"><a href="#cb14-152" aria-hidden="true" tabindex="-1"></a>    <span class="at">both =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb14-153"><a href="#cb14-153" aria-hidden="true" tabindex="-1"></a>    <span class="at">barcol =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"yellow"</span>),</span>
+<span id="cb14-154"><a href="#cb14-154" aria-hidden="true" tabindex="-1"></a>    <span class="at">lpcol =</span> <span class="st">"red"</span>,</span>
+<span id="cb14-155"><a href="#cb14-155" aria-hidden="true" tabindex="-1"></a>    <span class="at">pch =</span> <span class="dv">8</span></span>
+<span id="cb14-156"><a href="#cb14-156" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb14-157"><a href="#cb14-157" aria-hidden="true" tabindex="-1"></a>  <span class="fu">insert</span>(</span>
+<span id="cb14-158"><a href="#cb14-158" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"median"</span>,</span>
+<span id="cb14-159"><a href="#cb14-159" aria-hidden="true" tabindex="-1"></a>    <span class="at">lcol =</span> <span class="st">"green"</span>,</span>
+<span id="cb14-160"><a href="#cb14-160" aria-hidden="true" tabindex="-1"></a>    <span class="at">ptext =</span> <span class="fl">0.15</span></span>
+<span id="cb14-161"><a href="#cb14-161" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-162"><a href="#cb14-162" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-163"><a href="#cb14-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-164"><a href="#cb14-164" aria-hidden="true" tabindex="-1"></a>A ogiva exibe as curvas de frequência acumulada crescente e decrescente. A linha verde indica a posição da mediana, que corresponde ao ponto de interseção das duas curvas.</span>
+<span id="cb14-165"><a href="#cb14-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-166"><a href="#cb14-166" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Gráfico de pizza</span></span>
+<span id="cb14-167"><a href="#cb14-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-170"><a href="#cb14-170" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb14-171"><a href="#cb14-171" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span></span>
+<span id="cb14-172"><a href="#cb14-172" aria-hidden="true" tabindex="-1"></a>  <span class="fu">piechart</span>()</span>
+<span id="cb14-173"><a href="#cb14-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-174"><a href="#cb14-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-175"><a href="#cb14-175" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Medidas de posição e dispersão</span></span>
+<span id="cb14-176"><a href="#cb14-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-179"><a href="#cb14-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb14-180"><a href="#cb14-180" aria-hidden="true" tabindex="-1"></a><span class="co"># Medidas de posição</span></span>
+<span id="cb14-181"><a href="#cb14-181" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span> <span class="fu">mpos</span>(<span class="at">grouped =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-182"><a href="#cb14-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-183"><a href="#cb14-183" aria-hidden="true" tabindex="-1"></a><span class="co"># Variância</span></span>
+<span id="cb14-184"><a href="#cb14-184" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span> <span class="fu">variance</span>()</span>
+<span id="cb14-185"><a href="#cb14-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-186"><a href="#cb14-186" aria-hidden="true" tabindex="-1"></a><span class="co"># Desvio padrão</span></span>
+<span id="cb14-187"><a href="#cb14-187" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span> <span class="fu">sdev</span>()</span>
+<span id="cb14-188"><a href="#cb14-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-189"><a href="#cb14-189" aria-hidden="true" tabindex="-1"></a><span class="co"># Coeficiente de variação</span></span>
+<span id="cb14-190"><a href="#cb14-190" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">|&gt;</span> <span class="fu">cv</span>()</span>
+<span id="cb14-191"><a href="#cb14-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-192"><a href="#cb14-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-193"><a href="#cb14-193" aria-hidden="true" tabindex="-1"></a>Os resultados mostram que a média e a mediana dos dados gerados são próximas de 100, confirmando a simetria da distribuição. O coeficiente de variação é baixo, indicando pequena variabilidade relativa em torno da média, o que é esperado dado o desvio padrão de 2 utilizado na simulação.</span>
+<span id="cb14-194"><a href="#cb14-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-195"><a href="#cb14-195" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-196"><a href="#cb14-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-197"><a href="#cb14-197" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
+<span id="cb14-198"><a href="#cb14-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-199"><a href="#cb14-199" aria-hidden="true" tabindex="-1"></a>O pacote <span class="in">`leem`</span> centraliza as principais ferramentas de estatística descritiva em um único ambiente, com sintaxe simples e compatível com o operador pipe. As funções de tabulação, gráficos e medidas estatísticas cobrem as necessidades básicas de análises introdutórias. O uso da semente <span class="in">`set.seed()`</span> garante que os resultados sejam reprodutíveis, o que é fundamental em análises científicas.</span>
+<span id="cb14-200"><a href="#cb14-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-201"><a href="#cb14-201" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
+<span id="cb14-202"><a href="#cb14-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-203"><a href="#cb14-203" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
+<span id="cb14-204"><a href="#cb14-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-205"><a href="#cb14-205" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
 </code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

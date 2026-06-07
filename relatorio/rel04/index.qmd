@@ -24,102 +24,221 @@ execute:
   message: false
 ---
 
-
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
+O R base disponibiliza um conjunto completo de funções para manipulação de dados. Com o desenvolvimento do ecossistema Tidyverse, surgiram funções alternativas que buscam oferecer uma sintaxe mais uniforme e legível, especialmente para análises encadeadas com o operador pipe (`|>`). O Tidyverse é uma coleção de pacotes para ciência de dados que compartilham uma filosofia de design comum, sendo os principais o `dplyr`, `tidyr`, `ggplot2`, `stringr` e `purrr` [@tidyverse2019].
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+Este relatório apresenta um comparativo direto entre as funções do R base, estudadas na [Aula 4](https://bendeivide.github.io/slides/lrcd/s04/){target="_blank"} [@scriptaula04], e as funções equivalentes do Tidyverse, apresentadas no [Script da Aula 5](https://bendeivide.github.io/lrcd/2026.1/LRCD2026.1_AULA05.R){target="_blank"} [@scriptaula05].
 
-
+---
 
 ## 🎯 Objetivos
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+Comparar as funções de manipulação de dados do R base com as funções equivalentes da família de pacotes Tidyverse.
 
 ### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+- Comparar as estruturas de dados `data.frame` e `tibble`
+- Comparar funções de filtragem, seleção e criação de variáveis
+- Comparar funções de agrupamento e resumo estatístico
+- Comparar abordagens de iteração entre Base R e `purrr`
+- Identificar vantagens e limitações de cada abordagem
 
 ---
 
-## 📚  Fundamentação Teórica
+## 📚 Fundamentação Teórica
 
-Apresente os conceitos principais:
+### Estruturas de dados
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+O R base utiliza o `data.frame` como principal estrutura tabular. O Tidyverse introduz o `tibble`, que é uma versão moderna do `data.frame` com impressão mais legível e comportamento mais previsível [@tidyverse2019].
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+```{r}
+library(tidyverse)
+
+# Base R: data.frame
+df_base <- data.frame(
+  aluno = c("Ana", "Bruno", "Carlos"),
+  nota  = c(7.5, 8.0, 6.5)
+)
+
+# Tidyverse: tibble
+df_tidy <- tibble(
+  aluno = c("Ana", "Bruno", "Carlos"),
+  nota  = c(7.5, 8.0, 6.5)
+)
+
+df_base
+df_tidy
+```
+
+### Visualização da estrutura
+
+| Base R | Tidyverse | Descrição |
+|--------|-----------|-----------|
+| `str()` | `glimpse()` | Exibe a estrutura do objeto |
+| `summary()` | `summarise()` | Resume os dados |
+| `head()` | `slice_head()` | Primeiras linhas |
+
+### Filtragem de linhas
+
+O R base utiliza indexação ou a função `subset()`. O Tidyverse utiliza `filter()`, que aceita múltiplas condições de forma mais legível:
+
+```{r}
+# Dados de exemplo
+set.seed(123)
+vendas <- tibble(
+  produto       = sample(c("Notebook", "Mouse", "Teclado"), 20, replace = TRUE),
+  quantidade    = sample(1:10, 20, replace = TRUE),
+  preco         = round(runif(20, 50, 2000), 2),
+  estado        = sample(c("SP", "MG", "RJ"), 20, replace = TRUE)
+)
+vendas$valor_total <- vendas$quantidade * vendas$preco
+```
+
+```{r}
+# Base R: subset()
+subset(vendas, valor_total > 5000)
+
+# Tidyverse: filter()
+vendas |> filter(valor_total > 5000)
+```
+
+### Seleção de colunas
+
+```{r}
+# Base R: indexação por colchetes
+vendas[, c("produto", "valor_total")]
+
+# Tidyverse: select()
+vendas |> select(produto, valor_total)
+```
+
+O `select()` do Tidyverse oferece funções auxiliares como `starts_with()`, `ends_with()` e `contains()` para seleção por padrão de nome, o que não está disponível de forma nativa no R base.
+
+### Criação e modificação de variáveis
+
+```{r}
+# Base R: atribuição direta
+vendas$imposto <- vendas$valor_total * 0.18
+
+# Tidyverse: mutate()
+vendas |> mutate(imposto = valor_total * 0.18)
+```
+
+O `mutate()` permite criar múltiplas colunas em uma única chamada e usar colunas recém-criadas dentro da mesma expressão, o que no R base exigiria múltiplas atribuições separadas.
+
+### Agrupamento e resumo
+
+```{r}
+# Base R: tapply()
+tapply(vendas$valor_total, vendas$produto, mean)
+
+# Base R: aggregate()
+aggregate(valor_total ~ produto, data = vendas, mean)
+
+# Tidyverse: group_by() + summarise()
+vendas |>
+  group_by(produto) |>
+  summarise(
+    total_vendas  = n(),
+    receita_total = sum(valor_total),
+    media_valor   = mean(valor_total),
+    desvio_padrao = sd(valor_total)
+  )
+```
+
+O `group_by()` combinado com `summarise()` permite calcular múltiplas estatísticas por grupo em uma única operação encadeada, retornando sempre um `tibble` organizado.
+
+### Ordenação
+
+```{r}
+# Base R: order()
+vendas[order(-vendas$valor_total), ]
+
+# Tidyverse: arrange()
+vendas |> arrange(desc(valor_total))
+```
+
+### Iteração
+
+```{r}
+# Base R: sapply()
+sapply(vendas[, c("quantidade", "preco", "valor_total")], mean)
+
+# Tidyverse: map_dbl() do pacote purrr
+vendas |>
+  select(quantidade, preco, valor_total) |>
+  map_dbl(mean)
+```
+
+O pacote `purrr` oferece variantes tipadas como `map_dbl()`, `map_chr()` e `map_lgl()` que garantem o tipo de retorno, reduzindo erros em pipelines mais complexos.
 
 ---
 
 ## ⚙️ Metodologia
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
-
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
+Os comparativos foram realizados utilizando um conjunto de dados de vendas criado artificialmente com a função `tibble()` e semente `set.seed(123)`. Para cada operação, foram apresentadas as abordagens em R base e em Tidyverse, executadas no RStudio com base nos scripts das Aulas 4 e 5 [@scriptaula04; @scriptaula05].
 
 ---
 
 ## 🔍 Resultados e Discussão
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
+### 📊 Análise de Dados
 
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
+#### Tabela comparativa geral
 
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
+| Operação | Base R | Tidyverse |
+|----------|--------|-----------|
+| Criar tabela de dados | `data.frame()` | `tibble()` |
+| Ver estrutura | `str()` | `glimpse()` |
+| Filtrar linhas | `subset()` | `filter()` |
+| Selecionar colunas | `df[, cols]` | `select()` |
+| Criar variáveis | `df$col <- ...` | `mutate()` |
+| Agrupar | `tapply()`, `aggregate()` | `group_by() + summarise()` |
+| Ordenar | `order()` | `arrange()` |
+| Iterar | `sapply()`, `lapply()` | `map()`, `map_dbl()` |
+| Remover NAs | `na.omit()` | `drop_na()` |
+| Valores únicos | `unique()` | `distinct()` |
+| Contar por grupo | `table()` | `count()` |
 
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
-
-Procure não apenas descrever, mas **interpretar os dados**.
-
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-### 📊  Análise de Dados
+#### Aplicação comparativa completa
 
 ```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
+# Resumo por produto - Base R
+aggregate(valor_total ~ produto, data = vendas, FUN = function(x)
+  c(media = mean(x), desvio = sd(x), total = sum(x)))
 ```
+
+```{r}
+# Resumo por produto - Tidyverse
+vendas |>
+  group_by(produto) |>
+  summarise(
+    media  = mean(valor_total),
+    desvio = sd(valor_total),
+    total  = sum(valor_total),
+    .groups = "drop"
+  ) |>
+  arrange(desc(total))
+```
+
+Os resultados mostram que ambas as abordagens produzem as mesmas informações. A diferença principal está na legibilidade: o código Tidyverse é mais fácil de ler e manter, especialmente quando há múltiplas operações encadeadas. O R base, por outro lado, não requer instalação de pacotes adicionais e tende a ser mais eficiente em conjuntos de dados menores.
+
+---
 
 ## 🧠 Considerações finais
 
-Apresente uma síntese dos principais pontos observados no experimento.
+O R base e o Tidyverse não são abordagens excludentes. O R base oferece estabilidade, menor dependência de pacotes externos e maior controle sobre as operações. O Tidyverse oferece uma sintaxe mais padronizada e expressiva, especialmente útil em análises exploratórias e pipelines complexos.
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
-
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+O conhecimento de ambas as abordagens é importante para o cientista de dados, pois permite escolher a ferramenta mais adequada para cada situação.
 
 ## Aprenda Quarto
 
 Acesse [Quarto](https://quarto.org/).
 
 ## 📖 Referências
+
+
+
