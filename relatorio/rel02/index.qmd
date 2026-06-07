@@ -1,7 +1,7 @@
 ---
 # Só mude aqui!!!!
 author: "Regina Graziela Cassemiro de Almeida"
-title: "Relatório 2 - Funções de Maniulação"
+title: "Relatório 2 - Manipulando Objetos em R"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
 link-citations: true
@@ -25,99 +25,217 @@ execute:
   message: false
 ---
 
-
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
+A linguagem R disponibiliza um conjunto de estruturas de dados e funções nativas que permitem manipular, filtrar e resumir informações de forma eficiente. Entre as estruturas mais utilizadas estão os vetores e os data frames, que formam a base para a maioria das análises estatísticas realizadas no ambiente R [@Rbasico2022].
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+Neste relatório, são descritas as principais funções de manipulação de objetos apresentadas no [Slide da Aula 4](https://bendeivide.github.io/slides/lrcd/s04/){target="_blank"} e no [Script da Aula 4](https://bendeivide.github.io/lrcd/2026.1/LRCD2026.1_AULA04.R){target="_blank"} [@scriptaula04], abrangendo operações com vetores, data frames, subconjuntos, funções da família `apply` e estruturas de controle de fluxo.
 
-
+---
 
 ## 🎯 Objetivos
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+Descrever as funções de manipulação de objetos em R apresentadas no Slide e no Script da Aula 4.
 
 ### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+- Descrever a criação e manipulação de vetores e data frames
+- Apresentar o funcionamento da função `subset()`
+- Descrever as funções da família `apply()`
+- Explicar as estruturas de controle de fluxo `for`, `while` e `if`
+- Apresentar as funções auxiliares `with()`, `by()`, `within()` e `ave()`
 
 ---
 
-## 📚  Fundamentação Teórica
+## 📚 Fundamentação Teórica
 
-Apresente os conceitos principais:
+No R, todos os dados são armazenados em objetos. Os dois tipos mais utilizados nesta aula são [@Rbasico2022]:
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+- **Vetor:** estrutura unidimensional que armazena elementos do mesmo tipo
+- **Data frame:** estrutura tabular onde cada coluna pode ter um tipo diferente, semelhante a uma planilha
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+### Vetores
+
+A função `c()` concatena elementos para formar um vetor. A função `names()` atribui nomes a cada posição do vetor, permitindo indexação por nome além de indexação numérica:
+
+```{r}
+notas <- c(7.5, 8.0, 6.5, 9.0, 5.5)
+alunos <- c("Ana", "Bruno", "Carlos", "Daniela", "Eduardo")
+names(notas) <- alunos
+notas
+```
+
+A indexação lógica permite selecionar elementos com base em condições:
+
+```{r}
+aprovados <- notas >= 7
+notas[aprovados]   # aprovados
+notas[!aprovados]  # reprovados
+```
+
+### Data Frame
+
+A função `data.frame()` cria uma tabela de dados com múltiplas colunas. As funções `str()` e `summary()` fornecem uma visão geral da estrutura e das estatísticas descritivas dos dados:
+
+```{r}
+dados <- data.frame(
+  aluno = alunos,
+  matematica = c(7.5, 8.0, 6.5, 9.0, 5.5),
+  estatistica = c(8.0, 7.5, 6.0, 9.5, 6.0),
+  programacao = c(7.0, 8.5, 7.0, 9.0, 5.0)
+)
+str(dados)
+summary(dados)
+```
+
+### Subconjuntos com `subset()`
+
+A função `subset()` filtra linhas e seleciona colunas de um data frame com base em condições lógicas:
+
+```{r}
+# Alunos com nota >= 7 em matemática
+subset(dados, matematica >= 7)
+
+# Condição múltipla
+subset(dados, matematica >= 7 & estatistica >= 7)
+```
+
+### Família `apply()`
+
+As funções da família `apply` aplicam uma função a margens de matrizes ou listas, evitando laços explícitos:
+
+- **`apply()`:** aplica uma função nas linhas (margem 1) ou colunas (margem 2) de uma matriz ou data frame
+- **`lapply()`:** aplica uma função a cada elemento de uma lista e retorna uma lista
+- **`sapply()`:** semelhante ao `lapply()`, mas simplifica o resultado para vetor ou matriz quando possível
+
+```{r}
+# Média por aluno (linhas)
+apply(dados[, 2:4], 1, mean)
+
+# Média por disciplina (colunas)
+apply(dados[, 2:4], 2, mean)
+
+# sapply simplifica o resultado
+sapply(dados[, 2:4], mean)
+```
+
+### `ifelse()`
+
+A função `ifelse()` é a versão vetorizada do `if`, aplicando uma condição elemento a elemento:
+
+```{r}
+dados$media <- apply(dados[, 2:4], 1, mean)
+dados$situacao <- ifelse(dados$media >= 7, "Aprovado", "Reprovado")
+dados
+```
+
+### Estruturas de controle de fluxo
+
+As estruturas `for`, `while` e `if` controlam a execução do código de forma iterativa e condicional:
+
+- **`if / else`:** executa um bloco de código dependendo de uma condição
+- **`for`:** repete um bloco de código para cada elemento de uma sequência
+- **`while`:** repete um bloco enquanto uma condição for verdadeira
+
+```{r}
+# Classificando alunos com for + if
+situacao_manual <- character(nrow(dados))
+for (i in 1:nrow(dados)) {
+  if (dados$media[i] >= 7) {
+    situacao_manual[i] <- "Aprovado"
+  } else {
+    situacao_manual[i] <- "Reprovado"
+  }
+}
+situacao_manual
+```
+
+```{r}
+# Simulando crescimento com while
+media_simulada <- 5
+incremento <- 0.3
+iteracoes <- 0
+while (media_simulada < 7) {
+  media_simulada <- media_simulada + incremento
+  iteracoes <- iteracoes + 1
+}
+cat("Média final:", round(media_simulada, 2), "\n")
+cat("Iterações:", iteracoes, "\n")
+```
+
+### Funções auxiliares
+
+- **`tapply()`:** aplica uma função a subgrupos definidos por um fator, retornando um vetor ou array
+- **`aggregate()`:** calcula estatísticas por grupo e retorna um data frame
+- **`with()`:** permite acessar colunas de um data frame sem repetir seu nome
+- **`within()`:** semelhante ao `with()`, mas voltado para criação e modificação de variáveis dentro do data frame
+- **`ave()`:** calcula uma função por grupo mantendo o resultado no mesmo tamanho do vetor original, útil para comparar cada observação com a média do seu grupo
+- **`by()`:** aplica uma função a subconjuntos de um data frame definidos por um fator
 
 ---
 
 ## ⚙️ Metodologia
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
-
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
+As funções descritas foram aplicadas a dois conjuntos de dados: um criado manualmente com notas de alunos fictícios e a base `penguins` do pacote `palmerpenguins`, que contém medidas físicas de 344 pinguins coletados no arquipélago Palmer, na Antártica, entre 2007 e 2009. Os dados foram manipulados diretamente no RStudio, reproduzindo os exemplos do Script da Aula 4 [@scriptaula04].
 
 ---
 
 ## 🔍 Resultados e Discussão
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
+### 📊 Análise de Dados
 
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
-
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
-
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
-
-Procure não apenas descrever, mas **interpretar os dados**.
-
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-### 📊  Análise de Dados
+#### Aplicação com notas de alunos
 
 ```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
+# Disciplina com maior média
+medias <- sapply(dados[, 2:4], mean)
+names(which.max(medias))
+
+# Total de aprovados
+sum(dados$situacao == "Aprovado")
+
+# Alunos acima da média geral
+media_geral <- mean(dados$media)
+subset(dados, media > media_geral)
 ```
+
+#### Aplicação com a base penguins
+
+```{r}
+library(palmerpenguins)
+dados_p <- na.omit(penguins)
+
+# Média da massa corporal por espécie
+tapply(dados_p$body_mass_g, dados_p$species, mean)
+```
+
+```{r}
+# Média por espécie e sexo
+aggregate(body_mass_g ~ species + sex, data = dados_p, mean)
+```
+
+```{r}
+# Espécie com maior massa média
+medias_esp <- tapply(dados_p$body_mass_g, dados_p$species, mean)
+names(which.max(medias_esp))
+```
+
+```{r}
+# Pinguins com massa acima da média da própria espécie
+dados_p$acima_media <- with(dados_p,
+  body_mass_g > ave(body_mass_g, species, FUN = mean))
+table(dados_p$acima_media)
+```
+
+A espécie Gentoo apresentou a maior massa corporal média entre as três espécies analisadas. A comparação entre `for` e `apply` mostrou que ambas as abordagens produzem resultados equivalentes, porém as funções da família `apply` são mais concisas. A função `ave()` se mostrou eficiente para comparar cada observação com a média do seu grupo sem necessidade de laços.
+
+---
 
 ## 🧠 Considerações finais
 
-Apresente uma síntese dos principais pontos observados no experimento.
-
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
-
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+As funções apresentadas na Aula 4 cobrem as principais operações de manipulação de dados disponíveis no R base. O uso combinado de `subset()`, `apply()`, `tapply()` e `aggregate()` permite realizar análises descritivas completas de forma direta. As estruturas de controle de fluxo complementam esse conjunto ao permitir automação de tarefas condicionais e iterativas.
 
 ## Aprenda Quarto
 
