@@ -1,7 +1,7 @@
 ---
 # Só mude aqui!!!!
 author: "Regina Graziela Cassemiro de Almeida"
-title: "Relatório 6 - Desenvolvimento de Pacote"
+title: "Relatório 6 - Desenvolvimento de Pacote - converteR"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
 link-citations: true
@@ -27,96 +27,202 @@ execute:
 
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
+O desenvolvimento de pacotes é uma das formas mais eficientes de organizar, documentar e compartilhar funções em R. Um pacote permite que um conjunto de funções seja reutilizado em diferentes projetos, com documentação padronizada e controle de versão [@Rbasico2022].
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+Neste relatório, é descrito o desenvolvimento do pacote `converteR`, criado para realizar conversões de unidades de medida nas categorias de distância, massa, temperatura e volume. O pacote foi desenvolvido com o auxílio do pacote `devtools` e documentado com o padrão Roxygen2. O código-fonte está disponível no repositório: [https://github.com/ReginaCassemiro/converteR](https://github.com/ReginaCassemiro/converteR){target="_blank"}.
 
-
+---
 
 ## 🎯 Objetivos
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+Desenvolver um pacote R para conversão de unidades de medida, documentando as funções exportadas e disponibilizando o projeto no GitHub.
 
 ### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+- Criar a estrutura do pacote com `devtools`
+- Desenvolver e documentar as funções de conversão com Roxygen2
+- Preencher o arquivo `DESCRIPTION` com as informações do pacote
+- Instalar e testar o pacote localmente
+- Enviar o projeto ao GitHub
 
 ---
 
-## 📚  Fundamentação Teórica
+## 📚 Fundamentação Teórica
 
-Apresente os conceitos principais:
+Um pacote R é composto por uma estrutura de pastas e arquivos padronizada. Os principais componentes são [@Rbasico2022]:
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+- **`R/`:** pasta onde ficam os arquivos com as funções do pacote
+- **`DESCRIPTION`:** arquivo com metadados do pacote (nome, versão, autor, descrição, licença)
+- **`NAMESPACE`:** arquivo que controla quais funções são exportadas e importadas
+- **`man/`:** pasta gerada automaticamente com a documentação das funções em formato `.Rd`
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+O pacote `devtools` facilita o desenvolvimento, fornecendo funções como `create()` para criar a estrutura, `document()` para gerar a documentação e `install()` para instalar o pacote localmente [@devtools2022].
+
+A documentação das funções é escrita com o padrão **Roxygen2**, utilizando comentários especiais que começam com `#'`. As principais tags são:
+
+- `@param`: descreve um parâmetro da função
+- `@return`: descreve o valor retornado
+- `@export`: indica que a função será exportada
+- `@examples`: fornece exemplos de uso
 
 ---
 
 ## ⚙️ Metodologia
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
+### Passo 1 — Criação da estrutura do pacote
 
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
+O pacote foi criado com a função `devtools::create()`, que gera automaticamente a estrutura de pastas e arquivos necessários:
+
+```{r eval=FALSE}
+library(devtools)
+devtools::create("converteR")
+```
+
+A estrutura gerada foi:
+
+```
+converteR/
+├── R/
+├── DESCRIPTION
+├── NAMESPACE
+└── converteR.Rproj
+```
+
+### Passo 2 — Preenchimento do arquivo DESCRIPTION
+
+O arquivo `DESCRIPTION` foi editado com as informações do pacote:
+
+```
+Package: converteR
+Title: Conversao de Unidades de Medida
+Version: 0.1.0
+Authors@R: person("Regina Graziela", "Cassemiro de Almeida",
+    email = "cassemiroregina23@gmail.com",
+    role = c("aut", "cre"))
+Description: Pacote para conversao de unidades de medida,
+    incluindo distancia, massa, temperatura e volume.
+License: MIT + file LICENSE
+Encoding: UTF-8
+RoxygenNote: 7.3.3
+```
+
+### Passo 3 — Desenvolvimento das funções
+
+As funções foram desenvolvidas no arquivo `R/conversoes.R`, utilizando a documentação Roxygen2. O pacote contém 7 funções de conversão:
+
+| Função | Conversão |
+|--------|-----------|
+| `km_para_m()` | Quilômetros → Metros |
+| `m_para_km()` | Metros → Quilômetros |
+| `kg_para_g()` | Quilogramas → Gramas |
+| `g_para_kg()` | Gramas → Quilogramas |
+| `celsius_para_fahrenheit()` | Celsius → Fahrenheit |
+| `fahrenheit_para_celsius()` | Fahrenheit → Celsius |
+| `litros_para_ml()` | Litros → Mililitros |
+
+Exemplo da documentação Roxygen2 para a função `km_para_m()`:
+
+```{r eval=FALSE}
+#' Converte quilometros para metros
+#'
+#' @param km Valor em quilometros
+#' @return Valor em metros
+#' @export
+#' @examples
+#' km_para_m(5)
+km_para_m <- function(km) {
+  km * 1000
+}
+```
+
+### Passo 4 — Geração da documentação
+
+A documentação foi gerada automaticamente com:
+
+```{r eval=FALSE}
+devtools::document()
+```
+
+Esse comando leu os comentários Roxygen2 e gerou os arquivos `.Rd` na pasta `man/` e atualizou o `NAMESPACE`.
+
+### Passo 5 — Instalação e teste
+
+O pacote foi instalado localmente e testado:
+
+```{r eval=FALSE}
+devtools::install()
+```
+
+```{r}
+library(converteR)
+
+# Testando as funções
+km_para_m(5)
+m_para_km(5000)
+kg_para_g(2)
+g_para_kg(2000)
+celsius_para_fahrenheit(100)
+fahrenheit_para_celsius(212)
+litros_para_ml(1.5)
+```
+
+### Passo 6 — Envio ao GitHub
+
+O projeto foi enviado ao GitHub com os seguintes comandos no Terminal:
+
+```bash
+git init
+git add -A
+git commit -m "Criando pacote converteR"
+git branch -M master
+git remote add origin https://github.com/ReginaCassemiro/converteR.git
+git push -u origin master
+```
+
+O repositório está disponível em:
+[https://github.com/ReginaCassemiro/converteR](https://github.com/ReginaCassemiro/converteR){target="_blank"}
 
 ---
 
 ## 🔍 Resultados e Discussão
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
-
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
-
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
-
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
-
-Procure não apenas descrever, mas **interpretar os dados**.
-
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-### 📊  Análise de Dados
-
 ```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
+# Demonstração das funções do pacote converteR
+library(converteR)
+
+# Distância
+cat("5 km =", km_para_m(5), "metros\n")
+cat("5000 m =", m_para_km(5000), "km\n")
+
+# Massa
+cat("2 kg =", kg_para_g(2), "gramas\n")
+cat("2000 g =", g_para_kg(2000), "kg\n")
+
+# Temperatura
+cat("100°C =", celsius_para_fahrenheit(100), "°F\n")
+cat("212°F =", fahrenheit_para_celsius(212), "°C\n")
+
+# Volume
+cat("1.5 litros =", litros_para_ml(1.5), "ml\n")
 ```
+
+Os resultados confirmam o funcionamento correto de todas as funções. As conversões estão matematicamente corretas e os resultados são coerentes com os valores esperados.
+
+---
 
 ## 🧠 Considerações finais
 
-Apresente uma síntese dos principais pontos observados no experimento.
+O desenvolvimento do pacote `converteR` permitiu compreender na prática o processo de criação, documentação e distribuição de pacotes em R. O uso do `devtools` simplificou cada etapa do processo, desde a criação da estrutura até a instalação local.
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
+A documentação com Roxygen2 garante que cada função tenha sua descrição, parâmetros e exemplos de uso registrados de forma padronizada, facilitando o uso por outros usuários.
 
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+O pacote está disponível publicamente no GitHub e pode ser instalado diretamente com:
+
+```{r eval=FALSE}
+devtools::install_github("ReginaCassemiro/converteR")
+```
 
 ## Aprenda Quarto
 
